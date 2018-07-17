@@ -85,6 +85,7 @@ class SessionForm extends React.Component {
             value={this.state.email}
             onChange={this.update('email')}
             className="login-input"
+            autoComplete="yes"
           />
           </label>
           <br/>
@@ -94,6 +95,7 @@ class SessionForm extends React.Component {
               value={this.state.password}
               onChange={this.update('password')}
               className="login-input"
+              autoComplete="no"
             />
           </label>
         </div>
@@ -109,6 +111,7 @@ class SessionForm extends React.Component {
             value={this.state.firstName}
             onChange={this.update('firstName')}
             className="login-input"
+            autoComplete="yes"
           />
         </label>
         <br/>
@@ -118,6 +121,7 @@ class SessionForm extends React.Component {
             value={this.state.lastName}
             onChange={this.update('lastName')}
             className="login-input"
+            autoComplete="yes"
           />
         </label>
         <br/>

@@ -8,7 +8,8 @@ import { logout } from '../../actions/session_action';
 const mapStateToProps = state => {
   return {
     loggedIn: state.auth.authenticated,
-    token: state.user.profile.token
+    token: state.user.profile.token,
+    currentUser: state.user.profile.user
   };
 };
 
@@ -19,4 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

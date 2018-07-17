@@ -2,9 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => (
-  { loggedIn: state.auth.authenticated }
-);
+const mapStateToProps = state => {
+  console.log("state",state);
+  return(
+    { loggedIn: state.auth.authenticated }
+    // { loggedIn: Boolean(state.session.currentUser) }
+  );
+
+};
 
 const Auth = ({ component: Component, path, loggedIn }) => (
   <Route

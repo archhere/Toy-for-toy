@@ -4,7 +4,9 @@ import merge from 'lodash/merge';
 const userReducer = (state={ profile: {}, error: '' },action) => {
   Object.freeze(state);
   switch (action.type) {
+
     case RECEIVE_CURRENT_USER:
+      console.log("hits here");
       return merge({}, state,{profile: JSON.parse(action.currentUser)});
     case UNAUTH_USER:
       return merge({}, state,{profile: {} });

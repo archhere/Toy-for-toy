@@ -1,12 +1,10 @@
 import React from 'react';
-
-
 import {
   Redirect,
   Link,
 } from 'react-router-dom';
 
-class Navbar extends React.Component {
+class Dashboard extends React.Component {
 
   render() {
     return (
@@ -15,19 +13,23 @@ class Navbar extends React.Component {
           <div className="home-container">
             <div className="title">
               <Link to='/' className="header-link">
-                <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1530035048/Mobile_App_Subscription_Icon.png" />
+                <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1531850086/logo.png" />
               </Link>
               <Link to='/' className="tag-line"><h4>Toy-for-toy </h4></Link>
             </div>
-
+            <div className="searchbarouter">
+              <div>
+                <input type="text" className="searchbar" placeholder="Search"/>
+              </div>
+              <div className="search"><i className="fas fa-search"></i></div>
+            </div>
+            </div>
             <div className="all-links">
               <div className = "right-side-links">
-                {/* <Link to='/' className="home-link">Home</Link> */}
-                <Link to='/' className="subscriptions-link">Profile</Link>
-                <button type="button" className="logout-button" onClick={(e)=> this.props.logout().then((logout) => this.props.history.push(`/login`))}>Logout</button>
+                <Link to='/' className="subscriptions-link">Toys</Link>
+                <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
               </div>
             </div>
-          </div>
 
         </header>
 
@@ -36,4 +38,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default Dashboard;

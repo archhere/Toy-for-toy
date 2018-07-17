@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let actualToken = token.split('.')[1];
     let userInfo = actualToken.replace('-', '+').replace('_', '/');
     let currentUser = JSON.parse(window.atob(userInfo));
-
+    console.log(currentUser);
     const preloadedState = {
       auth:  { authenticated: true },
       user: { profile: { token: token, user: currentUser } }
@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-  store = configureStore();
+  console.log("store",store);
+  window.state = store.getState();
+  
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
