@@ -4,9 +4,9 @@ module.exports = {
   context: __dirname,
   entry: "./client/toyfortoy.jsx",
   output: {
-    path: path.resolve(__dirname),
-    filename: "bundle.js"
-  },
+        path: __dirname,
+        filename: "./static_pages/bundle.js"
+    },
   module: {
     rules: [
       {

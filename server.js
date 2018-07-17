@@ -13,6 +13,10 @@ mongoose.connect(db).then(()=>console.log('Connected to mongo'));
 const server = app.listen(config.port);
 console.log("your server is running on " + config.port + "." );
 
+app.use(express.static('static_pages'));
+app.use("/styles", express.static(__dirname + "/frontend/styles"));
+
+
 
 app.use(logger('dev'));
 app.use(require('cors')());

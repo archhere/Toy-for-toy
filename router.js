@@ -3,11 +3,14 @@ const AuthenticationController = require('./controllers/authentication'),
       passportService = require('./config/passport'),
       passport = require('passport'),
       UtilController = require('./controllers/util');
+      const path = require('path');
       // Middleware to require login/auth
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 const REQUIRE_ADMIN = 'Admin',
       REQUIRE_MEMBER = 'Member';
+
+
 
 module.exports = function(app) {
 
