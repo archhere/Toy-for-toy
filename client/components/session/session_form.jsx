@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
       setTimeout(() => {
         if (password.length > 0) {
           this.setState({
-            email: 'escorrecto@gmail.com',
+            email: 'rishabh@gmail.com',
             password: this.state.password.concat(password[0])
           });
           password = password.slice(1);
@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
       <div className="auth-form">
         <form className="login-form-box">
           <br/>
-          Welcome to Es Correcto!
+          Love toys? Sign up to rent and share!
           <br/>
           Please {this.props.formType} or
 
