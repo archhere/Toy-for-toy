@@ -3,6 +3,7 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
+import Footer from '../../components/footer';
 
 class Dashboard extends React.Component {
 
@@ -32,7 +33,7 @@ class Dashboard extends React.Component {
             </div>
 
         </header>
-
+       <Footer />  
       </div>
     );
   }
