@@ -1,10 +1,10 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const LeaseSchema = new Schema({
   start_date: {
-    tye: Date
+    type: Date
   },
   end_date: {
     type: Date
@@ -13,24 +13,20 @@ const LeaseSchema = new Schema({
     type: String
   },
   toy_id: {
-    type: Schema.Type.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "users"
   },
   renter_id: {
-    type: Schema.Type.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "users"
   },
   owner_id: {
-    type: Schema.Tyoe.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "users"
   }
 });
 
 
-// module.exports = Lease = mongoose.model(
-//   "lease",
-//   LeaseSchema
-// );
 
 module.exports.schema = LeaseSchema;
 module.exports.model = mongoose.model("Lease", LeaseSchema);

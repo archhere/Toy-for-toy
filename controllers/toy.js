@@ -4,6 +4,8 @@ let ToyObj = require('../models/toy.js');
 const Toy = ToyObj.model;
 let User = require('../models/user.js');
 
+// Toy Index
+
 exports.getToys = function(req, res, next) {
   const query = Toy.find({});
   query.exec(function(err,toys){
@@ -11,9 +13,11 @@ exports.getToys = function(req, res, next) {
   });
 };
 
+// --------------------------------------------------------------------
+// Toy show
+
 exports.getToy = function(req,res,next) {
   let x = Toy.findById(req.params.toyId);
-  // console.log("params",x);
   const currentPlan = Toy.findById(req.params.toyId, function(err,doc){
     if(!doc) {
       return res.status(422).send({error: 'This toy does not exist'});
@@ -22,6 +26,9 @@ exports.getToy = function(req,res,next) {
     }
   });
 };
+
+// --------------------------------------------------------------------
+// Toy Create
 
 exports.addToy = function(req,res,next) {
   let token = req.headers.authorization;
@@ -42,7 +49,9 @@ exports.addToy = function(req,res,next) {
         const ownerId = req.body.ownerId || jwtDecode(JSON.stringify(token))._id;
 
 
-
+// --------------------------------------------------------------------
+  // VALIDATIONS
+// --------------------------------------------------------------------
 
   // if(!geometry){
   //   return res.status(422).send({ error: 'You must enter coordinates.'});
@@ -115,6 +124,9 @@ exports.addToy = function(req,res,next) {
 
 };
 
+// --------------------------------------------------------------------
+// Toy Edit
+
 exports.editToy = function(req,res,next) {
   let updatedInfo={};
   updatedInfo._id = req.params.toyId;
@@ -140,6 +152,10 @@ exports.editToy = function(req,res,next) {
             "You cannot edit this toy" })
   );
 };
+
+
+// --------------------------------------------------------------------
+// DELETE TOY
 
 exports.deleteToy = function(req,res,next) {
 
