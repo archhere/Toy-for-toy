@@ -77,6 +77,8 @@ class SessionForm extends React.Component {
   render() {
     const sharedFormSection = () => {
       return (
+      <div className='outersessionpage'>
+        
       <div className="login-form">
         <br/>
         <label>Email:
@@ -99,6 +101,7 @@ class SessionForm extends React.Component {
             />
           </label>
         </div>
+      </div>
       );
     };
 

@@ -1,6 +1,9 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   bcrypt = require("bcrypt-nodejs");
+  let Toy = require("./toy.js");
+
+
 
 const UserSchema = new Schema({
   email:{
@@ -22,8 +25,23 @@ const UserSchema = new Schema({
     enum: [ 'Member', 'Admin'],
     default: 'Member'
   },
-  resetPasswordToken: { type: String },
-  resetPasswordExpires: { type: Date },
+  geometry: {
+   type: {
+     type: String,
+     default: "Point"
+   },
+   coordinates: {
+     type: [Number],
+     index: "2dsphere"
+   }
+ },
+ avatar: {
+   type: String
+ },
+ toys: [Toy.schema],
+
+ resetPasswordToken: { type: String },
+ resetPasswordExpires: { type: Date },
 },
 {
   timestamps: true

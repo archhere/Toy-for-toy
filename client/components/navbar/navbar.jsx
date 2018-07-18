@@ -18,22 +18,17 @@ class Dashboard extends React.Component {
               </Link>
               <Link to='/' className="tag-line"><h4>Toy-for-toy </h4></Link>
             </div>
-            <div className="searchbarouter">
-              <div>
-                <input type="text" className="searchbar" placeholder="Search"/>
-              </div>
-              <div className="search"><i className="fas fa-search"></i></div>
-            </div>
-            </div>
+
+
             <div className="all-links">
               <div className = "right-side-links">
                 <Link to='/' className="subscriptions-link">Toys</Link>
                 <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
               </div>
             </div>
-
+            </div>
         </header>
-       <Footer />  
+       <Footer />
       </div>
     );
   }
