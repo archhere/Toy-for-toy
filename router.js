@@ -53,4 +53,6 @@ module.exports = function(app) {
   app.get('/api/toys/:toyId/lease', LeaseController.getAllLease);
   app.get('/api/toys/:toyId/lease/:leaseId', LeaseController.getOneLease);
   app.patch('/api/toys/:toyId/lease/:leaseId', LeaseController.editLease);
+  app.delete('/api/toys/:toyId/lease/:leaseId', LeaseController.deleteLease);
+
 };

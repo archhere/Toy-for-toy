@@ -133,3 +133,16 @@ exports.editLease = function(req,res,next) {
 // LEASE DELETE PAGE - Delete particular lease. Renter/owner can remove
     // lease 1 day before the start_date.
 // --------------------------------------------------------------------
+
+
+exports.deleteLease = function(req,res,next) {
+
+  Lease.findByIdAndRemove(req.params.leaseId, (err, lease) => {
+    if (err) return res.status(500).send(err);
+    const response = {
+      message: "Lease successfully deleted",
+      id: lease._id
+    };
+    return res.status(200).send(response);
+  });
+};
