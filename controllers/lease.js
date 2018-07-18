@@ -26,9 +26,9 @@ exports.addLease = function(req,res,next) {
       let renter_id = req.body.renter_id;
       let owner_id = req.body.owner_id;
 
-      // --------------------------------------------------------------------
-        // VALIDATIONS
-      // --------------------------------------------------------------------
+// --------------------------------------------------------------------
+  // VALIDATIONS
+// --------------------------------------------------------------------
 
       if (!start_date) return res.status(422).send({ error: 'You must enter start date.'});
       if (!end_date) return res.status(422).send({ error: 'You must enter end date.'});
@@ -67,10 +67,10 @@ exports.getAllLease = function(req,res,next) {
   });
 };
 
-// --------------------------------------------------------------------
 
 // --------------------------------------------------------------------
-// LEASE SHOW PAGE - details of every lease on a particular toy
+// LEASE SHOW PAGE - details of a particular lease for a
+// particular toy
 // --------------------------------------------------------------------
 
 exports.getOneLease = function(req,res,next) {
@@ -84,4 +84,39 @@ exports.getOneLease = function(req,res,next) {
   });
 };
 
+// --------------------------------------------------------------------
+// LEASE EDIT PAGE - edit the lease details. Renter can edit the lease
+// dates based on availability.
+// --------------------------------------------------------------------
+
+exports.editLease = function(req,res,next) {
+  let updatedInfo = {};
+
+  updatedInfo._id = req.params.leaseId;
+  if(req.body.start_date) updatedInfo.start_date = req.body.start_date;
+  if(req.body.end_date) updatedInfo.end_date = req.body.end_date;
+  if(req.body.rental_status) updatedInfo.end_date = req.body.end_date;
+  if (req.body.renter_id) return res.status(422).send({ error: 'You cannot edit renter id.'});
+  if (req.body.owner_id) return res.status(422).send({ error: 'You cannot edit owner id.'});
+  if (req.body.toy_id) return res.status(422).send({ error: 'You cannot edit toy id.'});
+  let currentLease = Lease.findById(req.params.leaseId);
+
+  let startDate = Date.parse(updatedInfo.start_date || currentLease.start_date);
+  let endDate = Date.parse(updatedInfo.end_date || currentLease.end_date);
+  let today = Date.parse(new Date());
+  if (startDate > endDate) return res.status(422).send({error: 'overlapping dates'});
+  if (startDate < today) return res.status(422).send({error: 'Your reservation must start at a future date'});
+  Lease.findOneAndUpdate(
+    {_id: req.params.leaseId},
+    { $set: updatedInfo},
+    { new: true }
+  ).then(newLease => res.json(newLease)).catch(err =>
+    res.status(404).json({ lease:
+              "You cannot edit this lease" })
+  );
+};
+
+// --------------------------------------------------------------------
+// LEASE DELETE PAGE - Delete particular lease. Renter/owner can remove
+    // lease 1 day before the start_date.
 // --------------------------------------------------------------------

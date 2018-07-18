@@ -52,4 +52,5 @@ module.exports = function(app) {
   app.post('/api/toys/:toyId/lease', LeaseController.addLease);
   app.get('/api/toys/:toyId/lease', LeaseController.getAllLease);
   app.get('/api/toys/:toyId/lease/:leaseId', LeaseController.getOneLease);
+  app.patch('/api/toys/:toyId/lease/:leaseId', LeaseController.editLease);
 };
