@@ -90,30 +90,43 @@ exports.getOneLease = function(req,res,next) {
 // --------------------------------------------------------------------
 
 exports.editLease = function(req,res,next) {
-  let updatedInfo = {};
+  const currentLease = Lease.findById(req.params.leaseId,function(err,doc){
+    if(!doc) {
+      return res.status(422).send({error: 'There is no lease on this toy'});
+    } else {
 
-  updatedInfo._id = req.params.leaseId;
-  if(req.body.start_date) updatedInfo.start_date = req.body.start_date;
-  if(req.body.end_date) updatedInfo.end_date = req.body.end_date;
-  if(req.body.rental_status) updatedInfo.end_date = req.body.end_date;
-  if (req.body.renter_id) return res.status(422).send({ error: 'You cannot edit renter id.'});
-  if (req.body.owner_id) return res.status(422).send({ error: 'You cannot edit owner id.'});
-  if (req.body.toy_id) return res.status(422).send({ error: 'You cannot edit toy id.'});
-  let currentLease = Lease.findById(req.params.leaseId);
+      let updatedInfo = {};
+      updatedInfo._id = req.params.leaseId;
+      if(req.body.start_date) updatedInfo.start_date = req.body.start_date;
+      if(req.body.end_date) updatedInfo.end_date = req.body.end_date;
+      if(req.body.rental_status) updatedInfo.end_date = req.body.end_date;
+      if (req.body.renter_id) return res.status(422).send({ error: 'You cannot edit renter id.'});
+      if (req.body.owner_id) return res.status(422).send({ error: 'You cannot edit owner id.'});
+      if (req.body.toy_id) return res.status(422).send({ error: 'You cannot edit toy id.'});
 
-  let startDate = Date.parse(updatedInfo.start_date || currentLease.start_date);
-  let endDate = Date.parse(updatedInfo.end_date || currentLease.end_date);
-  let today = Date.parse(new Date());
-  if (startDate > endDate) return res.status(422).send({error: 'overlapping dates'});
-  if (startDate < today) return res.status(422).send({error: 'Your reservation must start at a future date'});
-  Lease.findOneAndUpdate(
-    {_id: req.params.leaseId},
-    { $set: updatedInfo},
-    { new: true }
-  ).then(newLease => res.json(newLease)).catch(err =>
-    res.status(404).json({ lease:
-              "You cannot edit this lease" })
-  );
+      let newResult = Object.assign(doc,{});
+      if (updatedInfo.start_date) newResult.start_date = updatedInfo.start_date;
+      if (updatedInfo.end_date) newResult.end_date = updatedInfo.end_date;
+
+      // created a new object temporarily with updated information,
+      // to check for overlap in dates
+
+      overlappingRequests(newResult, newResult.toyId).then(result => {
+      if (result) {
+        res.json({ msg: 'overlapping dates. Sorry'});
+      } else {
+        Lease.findOneAndUpdate(
+          {_id: req.params.leaseId},
+          { $set: updatedInfo},
+          { new: true }
+        ).then(newLease => res.json(newLease)).catch(err =>
+          res.status(404).json({ lease:
+                    "You cannot edit this lease" })
+        );
+      }
+    });
+   }
+  });
 };
 
 // --------------------------------------------------------------------
