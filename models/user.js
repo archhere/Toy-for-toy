@@ -25,16 +25,16 @@ const UserSchema = new Schema({
     enum: [ 'Member', 'Admin'],
     default: 'Member'
   },
-  geometry: {
-   type: {
-     type: String,
-     default: "Point"
-   },
-   coordinates: {
-     type: [Number],
-     index: "2dsphere"
-   }
- },
+ //  geometry: {
+ //   type: {
+ //     type: String,
+ //     default: "Point"
+ //   },
+ //   coordinates: {
+ //     type: [Number],
+ //     index: "2dsphere"
+ //   }
+ // },
  avatar: {
    type: String
  },

@@ -25,9 +25,9 @@ exports.getToy = function(req,res,next) {
 
 exports.addToy = function(req,res,next) {
   let token = req.headers.authorization;
-        const geometry= {
-          coordinates: [req.body.longitude, req.body.latitude]
-        };
+        // const geometry= {
+        //   coordinates: [req.body.longitude, req.body.latitude]
+        // };
         const line1 = req.body.line1;
         const line2 = req.body.line2;
         const city= req.body.city;
@@ -44,9 +44,9 @@ exports.addToy = function(req,res,next) {
 
 
 
-  if(!geometry){
-    return res.status(422).send({ error: 'You must enter coordinates.'});
-  }
+  // if(!geometry){
+  //   return res.status(422).send({ error: 'You must enter coordinates.'});
+  // }
 
   if (!line1) {
     return res.status(422).send({ error: 'You must enter an address.'});
@@ -99,11 +99,12 @@ exports.addToy = function(req,res,next) {
     city: city,
     state: state,
     zipcode: zipcode,
-    geometry: geometry,
+    // geometry: geometry,
     description: description,
     ageGroup: ageGroup,
     toyType: toyType,
     rental_rate: rental_rate,
+    rental_type: rental_type,
     img_url: img_url
   });
 
