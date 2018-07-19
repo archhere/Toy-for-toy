@@ -139,7 +139,7 @@ exports.editToy = function(req,res,next) {
   if (req.body.zipcode) updatedInfo.zipcode = req.body.zipcode;
   if (req.body.description) updatedInfo.description = req.body.description;
   if (req.body.ageGroup) updatedInfo.ageGroup = req.body.ageGroup;
-  if (req.body.toyType) updatedInfo.line2 = req.body.toyType;
+  if (req.body.toyType) updatedInfo.toyType = req.body.toyType;
   if (req.body.rental_rate) updatedInfo.rental_rate = req.body.rental_rate;
   if (req.body.rental_type) updatedInfo.rental_type = req.body.rental_type;
 
