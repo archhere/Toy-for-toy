@@ -20,6 +20,32 @@ body {
   color: 	#273C92;
 }
 
+.slider-wrapper {
+
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  font-family:serif;
+  color: 	#273C92;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(""),
+  url("https://images.unsplash.com/photo-1473662711507-13345f9d447c?ixlib=rb-0.3.5&s=ffbed88768d03fcc60e099e1a8179894&auto=format&fit=crop&w=1650&q=80");
+  background-repeat: no-repeat, repeat-x;
+  background-position:center;
+  background-color: #FFD944;
+  background-size: 55px, auto;
+  width: 100%;
+  bottom: 0;
+  height: 400px;
+  padding: 10px;
+  letter-spacing: 0.3px;
+}
+
 .footer-container {
   display: flex;
   justify-content: center;
@@ -222,7 +248,7 @@ body {
 }
 
 
-/* * _________________________MODAL CSS--------------------- */ */
+/* * _________________________MODAL CSS--------------------- */
 
 .modal-background {
   position: fixed;
@@ -303,3 +329,8 @@ body {
   font-size: 30px;
   text-shadow: 0 0 8px #000000;
 }
+
+
+
+
+/* ----------------------------------------------------------------------- */
