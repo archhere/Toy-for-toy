@@ -5,11 +5,12 @@ import {
 } from 'react-router-dom';
 
 
-class Dashboard extends React.Component {
+class Navbar extends React.Component {
 
 
 
   render() {
+    console.log("props",this.props);
     let value1;
     let value2;
     let action1;
@@ -51,4 +52,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default Navbar;

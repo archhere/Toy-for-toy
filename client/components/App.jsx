@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute,AuthspecialRoute, ProtectedRoute } from '../util/route_util';
 import cookie from 'react-cookies';
 import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
@@ -19,6 +19,7 @@ import {
 
 const App = () => {
   // console.log("appstate", state);
+  // console.log(state.auth.authenticated);
   // let value;
   // if (state.auth.authenticated){
   //   value = <AuthRoute exact path="/login" component={LoginFormContainer} />;
@@ -32,11 +33,13 @@ const App = () => {
       <header>
 
       <NavbarContainer/>
-
+      <AuthspecialRoute exact path="/login" component={LoginFormContainer} />
       </header>
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
+
       <Switch>
+
         <ProtectedRoute exact path="/" component={ToyIndexContainer} />
+
 
       </Switch>
 

@@ -6,7 +6,7 @@ import cookie from 'react-cookies';
 import { logout } from '../../actions/session_action';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
   return {
     loggedIn: state.auth.authenticated,
     token: state.user.profile.token,
@@ -22,7 +22,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
