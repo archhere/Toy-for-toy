@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal()).then(this.props.history.push('/'));
   }
 
   demoLogin(e) {
@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
         }
         else {
           this.props.login(this.state)
-            .then(() => this.props.history.push('/'));
+            .then(() => this.props.closeModal()).then(()=> this.props.history.push('/'));
         }
       }, 100);
 
@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
     const sharedFormSection = () => {
       return (
       <div className='outersessionpage'>
-        
+
       <div className="login-form">
         <br/>
         <label>Email:
@@ -136,13 +136,11 @@ class SessionForm extends React.Component {
       <div className="auth-wrapper">
       <div className="auth-form">
         <form className="login-form-box">
+          <span className="close-modal" onClick={() => this.props.closeModal()}>X</span>
           <br/>
           Love toys? Sign up to rent and share!
           <br/>
-          Please {this.props.formType} or
 
-          {this.props.formType === 'Signup' ? <Link to="/login" className="auth-switch"> Login instead</Link> : <Link to="/signup" className="auth-switch"> Sign Up instead</Link> }
-          <br/>
           <br/>
           {this.renderErrors()}
 

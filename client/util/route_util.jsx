@@ -5,7 +5,7 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 const mapStateToProps = state => {
   console.log("state",state);
   return(
-    { loggedIn: state.auth.authenticated }  
+    { loggedIn: state.auth.authenticated }
   );
 
 };

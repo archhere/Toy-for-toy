@@ -6,28 +6,47 @@ class ToyIndex extends React.Component {
     this.props.fetchToys();
   }
 
+  // render(){
+  //   let toyPage = this.props.toys.reverse();
+  //   return (
+  //     <div className="prodidxouter">
+  //
+  //         {toyPage.map(toy =>
+  //           <div className = "prodidxouterli">
+  //             <Link to={`/`} className="toy-link">
+  //               {toy.description}
+  //             </Link>
+  //             <Link to={`/`} className="products-link">
+  //               <img className = "prodidximg" src={toy.img_url} alt="Italian Trulli" />
+  //             </Link>
+  //           </div>
+  //         )}
+  //     </div>
+  //   );
+  // }
+
   render(){
-    let toyPage = this.props.toys.reverse();
-    return (
-      <div className="prodidxouter">
-        <Link to="/" className="add-product">+ Add Toy</Link>
+    return(
 
-        <div className="product-index-container">
-          {toyPage.map(toy =>
-            <div className = "prodidxouterli">
-              <Link to={`/`} className="toy-link">
-                {toy.description}
-              </Link>
-              <Link to={`/`} className="products-link">
-                <img className = "prodidximg" src={toy.img_url} alt="Italian Trulli" />
-              </Link>
-            </div>
-          )}
-        </div>
 
-      </div>
+    <div className="regions-container">
+       <h2 id="regions-title">Explore toys on rent</h2>
+       <h3 id="regions-subtitle">Find a toy for any budget</h3>
+       <ul className="regions group">
+         {this.props.toys.map((toy) =>
+           <button
+            className="region-element"
+            key={toy._id}>
+            <img className="region-pic" src={toy.img_url}/>
+            <span className="region-name">{toy.description}</span>
+          </button>
+        )}
+      </ul>
+    </div>
     );
   }
+
+
 }
 
 export default ToyIndex;

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, register, clearErrors } from '../../actions/session_action';
 import SessionForm from './session_form';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user)),
   processForm: user => dispatch(register(user)),
-  clearForm: () => dispatch(clearErrors([]))
+  clearForm: () => dispatch(clearErrors([])),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

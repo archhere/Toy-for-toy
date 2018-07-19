@@ -1,32 +1,51 @@
 import React from 'react';
-import LoginFormContainer from '../../components/session/loginformcontainer';
+import { closeModal } from '../../actions/modal_actions';
+import { connect } from 'react-redux';
+import LoginFormContainer from '../../components/session/loginform_container';
 import SignUpFormContainer from '../../components/session/registerform_container';
 
-class Modal extends React.Component {
-  render() {
-    const { modal, closeModal } = this.props;
-    if (!modal) return null;
-    let component;
+const Modal = (props) => {
+  if (!props.modal){
+    return null;
+  }
 
-    switch(modal) {
-      case 'login':
-        component = <LoginFormContainer />;
-        break;
-      case 'signup':
-        component = <SignUpFormContainer />;
-        break;
-      default:
-        return null;
-    }
+  let component;
+  switch(props.modal.modal.modal){
+    case "login":
+    component = <LoginFormContainer />;
+    break;
+    case 'signup':
+    component = <SignUpFormContainer />;
+    break;
+    default:
+    return null;
+  }
 
-    return (
-      <div className="modal-background" onClick={closeModal}>
+  let modalStyle;
+  if(props.modal === 'CreatePeg' || props.modal === 'CreateBoard'){
+    modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
+  } else {
+    modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
+  }
+  return (
+      <div className="modal-background" style={modalStyle}>
         <div className="modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>
       </div>
     );
-  }
-}
 
-export default Modal;
+  };
+  const mapStateToProps = (state) => {
+      return {
+        modal: state.modal,
+      };
+  };
+
+  const mapDispatchToProps = (dispatch) => {
+      return {
+        closeModal: () => dispatch(closeModal()),
+      };
+  };
+
+  export default connect(mapStateToProps, mapDispatchToProps)(Modal);

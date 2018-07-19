@@ -6,6 +6,8 @@ import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
 import NavbarContainer from './navbar/navbarcontainer';
 import ToyIndexContainer from './toys/toyIndex_container';
+import Footer from './footer';
+import Modal from './modal/modal';
 
 import {
   Route,
@@ -16,18 +18,33 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
+  // console.log("appstate", state);
+  // let value;
+  // if (state.auth.authenticated){
+  //   value = <AuthRoute exact path="/login" component={LoginFormContainer} />;
+  // } else{
+  //   value = "";
+  // }
+
   return (
     <div>
-      <ProtectedRoute path="/" component={NavbarContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Modal />
+      <header>
 
+      <NavbarContainer/>
+
+      </header>
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
       <Switch>
         <ProtectedRoute exact path="/" component={ToyIndexContainer} />
+
       </Switch>
 
-    </div>
 
+    <footer>
+      <Footer/>
+    </footer>
+    </div>
   );
 };
 

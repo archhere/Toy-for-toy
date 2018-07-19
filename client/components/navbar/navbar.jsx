@@ -3,11 +3,28 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
-import Footer from '../../components/footer';
+
 
 class Dashboard extends React.Component {
 
+
+
   render() {
+    let value1;
+    let value2;
+    let action1;
+    let action2;
+    if (!this.props.loggedIn){
+      value1 = 'SIGN UP';
+      value2 = 'LOG IN';
+      action1 = () => this.props.openModal({modal: 'signup'});
+      action2 = () => this.props.openModal({modal: 'login'});
+    } else{
+      value1 = 'MY TOYS';
+      action1 = "";
+      value2 = 'LOG OUT';
+      action2 = (e)=> this.props.logout();
+    }
     return (
       <div>
         <header>
@@ -22,13 +39,13 @@ class Dashboard extends React.Component {
 
             <div className="all-links">
               <div className = "right-side-links">
-                <Link to='/' className="subscriptions-link">Toys</Link>
-                <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
+                <button type="button" className="subscriptions-link"  onClick={action1}>{value1}</button>
+                <button type="button" className="logout-button" onClick={action2}>{value2}</button>
               </div>
             </div>
             </div>
         </header>
-       <Footer />
+
       </div>
     );
   }
