@@ -6,7 +6,8 @@ import cookie from 'react-cookies';
 
 // import {register,login} from './util/session_api_utils';
 // import * as toyAPIUtil from './util/toy_util';
-
+import {requestAllToys,requestOneToy,createToy,updateToy,removeToy}
+from './actions/toy_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -17,8 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.updateToy = toyAPIUtil.updateToy;
   // window.createToy = toyAPIUtil.createToy;
   // window.deleteToy = toyAPIUtil.deleteToy;
-
-
+  window.requestAllToys = requestAllToys;
+  window.requestOneToy = requestOneToy;
+  window.createToy = createToy;
+  window.updateToy = updateToy;
+  window.removeToy = removeToy;
 
   let store;
   let token = cookie.load('token');
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.state = store.getState();
-
+  window.dispatch = store.dispatch;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
