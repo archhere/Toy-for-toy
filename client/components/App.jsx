@@ -5,6 +5,8 @@ import cookie from 'react-cookies';
 import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
 import NavbarContainer from './navbar/navbarcontainer';
+import ToyIndexContainer from './toys/toyIndex_container';
+
 import {
   Route,
   Redirect,
@@ -19,6 +21,10 @@ const App = () => {
       <ProtectedRoute path="/" component={NavbarContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+      <Switch>
+        <ProtectedRoute exact path="/" component={ToyIndexContainer} />
+      </Switch>
 
     </div>
 
