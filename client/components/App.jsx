@@ -8,7 +8,7 @@ import NavbarContainer from './navbar/navbarcontainer';
 import ToyIndexContainer from './toys/toyIndex_container';
 import Footer from './footer';
 import Modal from './modal/modal';
-import Slider from './slider';
+import SliderContainer from './slider/slider_container';
 import {
   Route,
   Redirect,
@@ -33,7 +33,7 @@ const App = () => {
       <header>
 
       <NavbarContainer/>
-      <AuthRoute path="/" component={Slider}/>
+      <AuthRoute path="/" component={SliderContainer}/>
       <AuthspecialRoute exact path="/login" component={LoginFormContainer} />
       </header>
 

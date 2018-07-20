@@ -1,18 +1,12 @@
 
 
 import React from 'react';
-import { openModal } from '../actions/modal_actions';
 
-const Slider = () => {
+
+const Slider = (props) => {
   let arr = ["Surprise your kids", "Get them new toys everyday", "New toys on a budget"];
+  let action1 = () => props.openModal({modal: 'signup'});
 
-  const handleClick = (e) => {
-    console.log("clicked");
-    console.log(openModal);
-    return(
-      openModal({modal: 'signup'})
-    );
-  };
 
   return (
     <div className="slider-wrapper">
@@ -26,7 +20,7 @@ const Slider = () => {
               <li>Toys for every budget</li>
               <li>Rent your unused toys and make money</li>
             </ul>
-          <p className="joinbutton" onClick={(e) => handleClick(e)}>Join now</p>
+          <p className="joinbutton" onClick={action1}>Join now</p>
           </div>
         </div>
       </section>

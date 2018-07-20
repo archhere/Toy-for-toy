@@ -32,9 +32,9 @@ class Navbar extends React.Component {
           <div className="home-container">
             <div className="title">
               <Link to='/' className="header-link">
-                <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1531850086/logo.png" />
+                <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1532054909/5b939de5-5536-4993-99cd-f7ac7b2ad370.png" />
               </Link>
-              <Link to='/' className="tag-line"><h4>Toy-for-toy </h4></Link>
+              <h4 className="tag-line">Play - Learn - Rent - Repeat </h4>
             </div>
 
 
