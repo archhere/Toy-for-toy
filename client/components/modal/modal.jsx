@@ -28,7 +28,7 @@ const Modal = (props) => {
     modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
   }
   return (
-      <div className="modal-background" style={modalStyle}>
+      <div className="modal-background" onClick={closeModal} style={modalStyle}>
         <div className="modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>

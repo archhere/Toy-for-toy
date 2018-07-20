@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal()).then(this.props.history.push('/'));
+    this.props.processForm(user).then((payload) => this.props.closeModal());
   }
 
   demoLogin(e) {
@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
         }
         else {
           this.props.login(this.state)
-            .then(() => this.props.closeModal()).then(()=> this.props.history.push('/'));
+            .then(() => this.props.closeModal());
         }
       }, 100);
 
@@ -55,13 +55,10 @@ class SessionForm extends React.Component {
 
   }
 
-  // handleDemoSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.login({ username: "anseladams", password: "qwer0987" })
-  // }
 
   renderErrors() {
     let slice;
+    console.log("errors",this.props.errors);
     if (this.props.formType === "Signup") {
       if (this.props.errors) {
         slice = this.props.errors.slice(10, this.props.errors.length - 2);
@@ -73,6 +70,14 @@ class SessionForm extends React.Component {
       <div className="errors">{slice}</div>
     );
   }
+
+  // renderErrors(field) {
+  //   return (
+  //     <div key={`error-${field}`} className='signup-errors'>
+  //         {this.props.errors.find((error) => error.includes(field))}
+  //       </div>
+  //     );
+  //   }
 
   render() {
     const sharedFormSection = () => {
@@ -143,7 +148,7 @@ class SessionForm extends React.Component {
     return (
 
       <div className="auth-form">
-        <form className="login-form-box">
+        <form className="login-form-box" onSubmit={this.handleSubmit} >
           <span className="close-modal" onClick={() => this.props.closeModal()}>X</span>
           <br/>
           <span className="welcome">{welcomeText}</span>
@@ -156,8 +161,9 @@ class SessionForm extends React.Component {
           {sharedFormSection()}
           { this.props.formType === 'Signup' ? otherSection() : <div></div> }
           <br/>
-          <button onClick={this.handleSubmit} className="session-submit" type="submit">{this.props.formType}</button>
+          <button className="session-submit" type="submit">{this.props.formType}</button>
           <br/>
+          
           <input className="demo-login"
             onClick={(e) => this.demoLogin(e)} type="submit" value="Demo" />
           <br />
