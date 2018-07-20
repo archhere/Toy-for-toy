@@ -80,6 +80,18 @@ input:focus {outline:0;}
   font-size: 20px;
 }
 
+
+
+.session-submit1{
+  background: #00813F;
+  width: 100%;
+  text-align: center;
+  color: #FFF8E1;
+  cursor: pointer;
+  font-family: serif;
+  font-size: 20px;
+}
+
 .demo-login{
   background: #E83650;
   width: 100%;
@@ -385,7 +397,7 @@ button:focus {outline:0;}
   padding-right: 80px; */
   padding: 30px;
 
-  /* width: 25%; */
+  width: 28%;
   z-index: 3;
   position: absolute;
   border-radius: 5px;
