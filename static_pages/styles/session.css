@@ -26,7 +26,7 @@ body {
   bottom: 0;
   position: relative;
   font-family:serif;
-  color: 	#273C92;
+  color: 	white;
 }
 
 .slider-container {
@@ -37,15 +37,44 @@ body {
   url("https://images.unsplash.com/photo-1473662711507-13345f9d447c?ixlib=rb-0.3.5&s=ffbed88768d03fcc60e099e1a8179894&auto=format&fit=crop&w=1650&q=80");
   background-repeat: no-repeat, repeat-x;
   background-position:center;
-  background-color: #FFD944;
+  /* background-color: #FFD944; */
   background-size: 55px, auto;
   width: 100%;
   bottom: 0;
   height: 400px;
   padding: 10px;
   letter-spacing: 0.3px;
+
+  color:#E83650;
+  font-size: 20px;
 }
 
+
+.textbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFF8E1;
+  width: 30%;
+  border-radius: 8px;
+}
+
+.joinbutton{
+  background: #E83650;
+  width: 30%;
+  text-align: center;
+  color: #FFF8E1;
+  cursor: pointer;
+}
+
+.listclass{
+  list-style: none;
+}
+
+.listclass li:before {
+  content: '✓';
+}
 .footer-container {
   display: flex;
   justify-content: center;
@@ -130,6 +159,7 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid lightgray;
+  background: #FFF8E1;
 }
 
 .title {
@@ -185,12 +215,30 @@ body {
 .subscriptions-link{
   padding-right: 50px;
   text-decoration: none;
-  color: #555;
+  /* color: #DCE8D4; */
+  color: #FF4E69;
+  background: #FFF8E1;
+  border: none;
+  font-size: 20px;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.logout-button {
+  border: none;
+  padding-right: 40px;
+  text-decoration: none;
+  color: #FF4E69;
+  background: #FFF8E1;
+  border: none;
+  font-size: 20px;
+  font-family: serif;
+  font-weight: bold;
 }
 
 .subscriptions-link:hover {
   color: rgb(150, 150, 150);
-  transition: .5s;
+  transition: .1s;
 }
 
 .product-link{
@@ -215,14 +263,7 @@ body {
   transition: .5s;
 }
 
-.logout-button {
-  border: none;
-  padding-right: 40px;
-  text-decoration: none;
-  color: #555;
-  font-size: 16px;
-  padding-left: 0px;
-}
+
 
 .logout-button:hover {
   color: rgb(150, 150, 150);
@@ -334,3 +375,32 @@ body {
 
 
 /* ----------------------------------------------------------------------- */
+
+
+.headline.slideytest em {
+    font-size: 0;
+    background: transparent url(//icdn.kiwicrate.com/site/home/hero-inspiring-archer.png) top left no-repeat;
+    display: block;
+    width: 153px;
+    margin: 0 auto;
+    background-size: 153px auto;
+    color: white;
+}
+
+
+.page-wrapper h1, .page-wrapper h2 {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.2em;
+    text-align: center;
+    margin: 1em 0;
+    font: 16px/22px "Museo Sans",Arial,Helvetica,Verdana,sans-serif;
+}
+
+.slidebox {
+    position: relative;
+    height: 1em;
+    overflow: hidden;
+    font-size: 60px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
