@@ -29,16 +29,16 @@ class ToyIndex extends React.Component {
     return(
 
 
-    <div className="regions-container">
-       <h2 id="regions-title">Explore toys on rent</h2>
-       <h3 id="regions-subtitle">Find a toy for any budget</h3>
-       <ul className="regions group">
+    <div className="toys-container">
+       <h2 id="toys-title">Explore toys on rent</h2>
+       <h3 id="toys-subtitle">Find a toy for any budget</h3>
+       <ul className="toys group">
          {this.props.toys.map((toy) =>
            <button
-            className="region-element"
+            className="toy-element"
             key={toy._id}>
-            <img className="region-pic" src={toy.img_url}/>
-            <span className="region-name">{toy.description}</span>
+            <img className="toy-pic" src={toy.img_url}/>
+            <span className="toy-name">{toy.description}</span>
           </button>
         )}
       </ul>

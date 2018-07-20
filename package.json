@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "## Background and Overview",
   "main": "router.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -d -w",
-    "dev": "nodemon server.js",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
