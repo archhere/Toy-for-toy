@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
   render() {
     const sharedFormSection = () => {
       return (
-      <div className='outersessionpage'>
+      // <div className='outersessionpage'>
 
       <div className="login-form">
         <br/>
@@ -101,13 +101,14 @@ class SessionForm extends React.Component {
             />
           </label>
         </div>
-      </div>
+      // </div>
       );
     };
 
     const otherSection = () => {
       return (
-        <div>
+        <div className="otherinfo123">
+        <br/>
         <label>First Name:
           <br/>
           <input type="text"
@@ -116,6 +117,7 @@ class SessionForm extends React.Component {
             className="login-input"
             autoComplete="yes"
           />
+        <br/>
         </label>
         <br/>
         <label>Last Name:
@@ -132,16 +134,23 @@ class SessionForm extends React.Component {
       );
     };
 
+    let welcomeText;
+    if (this.props.formType === "Signup"){
+      welcomeText = "Hello new user";
+    } else {
+      welcomeText = "Welcome Back"
+    }
     return (
-      <div className="auth-wrapper">
+
       <div className="auth-form">
         <form className="login-form-box">
           <span className="close-modal" onClick={() => this.props.closeModal()}>X</span>
           <br/>
-          Love toys? Sign up to rent and share!
+          <span className="welcome">{welcomeText}</span>
           <br/>
+          <span className="signuptext">{this.props.formType} to rent and share!</span>
 
-          <br/>
+          <div className="sharedformandcommon">
           {this.renderErrors()}
 
           {sharedFormSection()}
@@ -149,13 +158,13 @@ class SessionForm extends React.Component {
           <br/>
           <button onClick={this.handleSubmit} className="session-submit" type="submit">{this.props.formType}</button>
           <br/>
-          <br/>
           <input className="demo-login"
             onClick={(e) => this.demoLogin(e)} type="submit" value="Demo" />
           <br />
+          </div>
         </form>
       </div>
-      </div>
+
     );
   }
 }
