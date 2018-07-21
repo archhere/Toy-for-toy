@@ -7,6 +7,7 @@ import {requestOneToy,
   requestAllToys,
   createToy} from '../../actions/toy_actions';
 
+
 const mapStateToProps = state => {
   let token = cookie.load('token');
   let currentUser;

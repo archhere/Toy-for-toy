@@ -420,86 +420,132 @@ button:focus {outline:0;}
 
 /* _________________________TOY CSS-------------------- */
 
-.toys-container{
-  background-color:  #FFFAEA;
-}
 
-
-#toys-title{
-  text-align: center;
-  padding-top: 20px;
-  color: #4d4e50;
-}
-
-#toys-subtitle{
-  text-align: center;
-  margin-top: 10px;
-  color: #4d4e50;
-}
-
-.toys{
+.home-container1 {
   display: flex;
-  flex-wrap: wrap;
+  margin-top: 98px;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .search-container h2 {
+      font-size: 32px;
+      color: #FA1943;
+      font-weight: 600;
+    }
+
+  img {
+    width: 100%;
+  }
+
+
+.or-text {
+  text-decoration: none;
+  text-align: center;
+  padding-top: 30px;
+  padding-right: 5px;
+  font-size: 15px;
+  color: #767676;
+;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.or-text:hover {
+  text-decoration: underline;
+}
+
+.sub-search {
+  display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  padding-right: 60px;
+
 }
 
-.toy-element{
-  position: relative;
+.sub-search span {
+  padding-top: 24px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
-.toy-pic{
-  height: 200px;
-  width: 290px;
-  margin: 7px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+.home-categories {
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.toy-pic:hover {
-  box-shadow: 4px 4px 6px #272829;
-  opacity: 0.8;
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  width: 70%;
 }
 
+.home-category {
+  height: 338px;
+  cursor: pointer;
+}
 
-.toy-name{
+.browse-toys {
+  text-align: center;
+  padding-bottom: 35px;
+  font-weight: 600;
+  color: #FA1943;
+}
+
+.home-picture{
+  width: 441.66px;
+  heigth: 554px;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-image {
+  height: 100%;
+}
+
+.home-category-title {
+  font-size: 18px;
+  font-weight: 600;
   color:  #FFFAEA;
-  position: absolute;
-  bottom: 12px;
-  left: 20px;
-  font-size: 30px;
-  text-shadow: 0 0 8px #000000;
+  cursor: pointer;
+}
+
+.home-category-title:hover {
+  text-decoration: underline;
+}
+
+.category-holder {
+  border: 1px solid #ebebeb;
+}
+
+.home-text-container {
+  display: flex;
+  flex-direction: column;
+  background: #FA1943;
+  text-align: center;
+  /* padding: 15px; */
+  border: 1px solid #ebebeb;
+}
+
+.home-text{
+  color: #767676;
+}
+
+.options-near-me {
+  font-size: 15px;
+  font-weight: 300;
+  color:  #FFFAEA;
 }
 
 
 
 
-/* ----------------------------------------------------------------------- */
 
-
-.headline.slideytest em {
-    font-size: 0;
-    background: transparent url(//icdn.kiwicrate.com/site/home/hero-inspiring-archer.png) top left no-repeat;
-    display: block;
-    width: 153px;
-    margin: 0 auto;
-    background-size: 153px auto;
-    color: white;
-}
-
-
-.page-wrapper h1, .page-wrapper h2 {
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 1.2em;
-    text-align: center;
-    margin: 1em 0;
-    font: 16px/22px "Museo Sans",Arial,Helvetica,Verdana,sans-serif;
-}
-
-.slidebox {
-    position: relative;
-    height: 1em;
-    overflow: hidden;
-    font-size: 60px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,.5);
-}
+/* ------------------------------------------------------------------------ */
