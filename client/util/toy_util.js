@@ -34,6 +34,40 @@ export const fetchOneToy = (id) => {
   });
 };
 
+export const fetchToysByGPS = (gps) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/search',
+    dataType: 'html',
+    params: gps,
+    contentType: "application/json; charset=utf-8",
+    headers: { "Authorization": token },
+  });
+};
+
+export const fetchToysByZip = (zip) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/search/byzip',
+    dataType: 'html',
+    params: zip,
+    contentType: "application/json; charset=utf-8",
+    headers: { "Authorization": token },
+  });
+};
+
+export const fetchToysByCity = (city) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/search/bycity',
+    dataType: 'html',
+    params: city,
+    contentType: "application/json; charset=utf-8",
+    headers: { "Authorization": token },
+  });
+};
+
+
 export const updateToy = (toy) => {
   return $.ajax({
     method: 'PATCH',

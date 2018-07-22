@@ -1,5 +1,6 @@
 import * as ToyAPIUtil from '../util/toy_util.js';
 export const RECEIVE_ALL_TOYS = 'RECEIVE_ALL_TOYS';
+export const RECEIVE_TOYS = 'RECEIVE_TOYS';
 export const RECEIVE_ONE_TOY = 'RECEIVE_ONE_TOY';
 export const REMOVE_TOY = 'REMOVE_TOY';
 
@@ -27,7 +28,27 @@ export const updateToy = toy => dispatch => {
   );
 };
 
+// export const removeToy = id => dispatch => {
+//   ToyAPIUtil.deleteToy(id);
+//   dispatch({type: REMOVE_TOY, id: id});
+// };
+
 export const removeToy = id => dispatch => {
-  ToyAPIUtil.deleteToy(id);
-  dispatch({type: REMOVE_TOY, id: id});
+  ToyAPIUtil.deleteToy(id)
+  .then(res => dispatch({type: REMOVE_TOY, id: id}));
 };
+
+export const fetchToysByGPS = gps => dispatch =>
+  ToyAPIUtil.fetchToysByGPS(gps)
+    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
+    .catch(err => console.log(err));
+
+export const fetchToysByZip = zip => dispatch =>
+  ToyAPIUtil.fetchToysByZip(zip)
+    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
+    .catch(err => console.log(err));
+
+export const fetchToysByCity = city => dispatch =>
+  ToyAPIUtil.fetchToysByCity(city)
+    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
+    .catch(err => console.log(err));

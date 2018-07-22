@@ -57,6 +57,12 @@ module.exports = function(app) {
   app.delete('/api/toys/:toyId/lease/:leaseId', LeaseController.deleteLease);
 
 
+  // ------------------------------------------------------------------------
+  // Search Routes
+  // http://localhost:3000/api/toys/toyId/lease
+  // http://localhost:3000/api/toys/toyId/lease/leaseId
+  // --------------------------------------------------------------------
+
   app.get('/api/search', SearchController.findBygps);
   app.get('api/search/byzip', SearchController.findByzipcode);
   app.get('api/search/bycity', SearchController.findBycity);
