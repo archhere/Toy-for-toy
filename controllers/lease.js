@@ -3,7 +3,7 @@ var jwtDecode = require('jwt-decode');
 let LeaseObj = require('../models/lease.js');
 const Lease = LeaseObj.model;
 let User = require('../models/user.js');
-const overlappingRequests = require("../validation/lease-request");
+const overlappingRequests = require("../helper/lease-request");
 let ToyObj = require('../models/toy.js');
 const Toy = ToyObj.model;
 

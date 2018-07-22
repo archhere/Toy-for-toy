@@ -3,7 +3,7 @@ var jwtDecode = require('jwt-decode');
 let ToyObj = require('../models/toy.js');
 const Toy = ToyObj.model;
 let User = require('../models/user.js');
-
+const cities = require("cities");
 // Toy Index
 
 exports.getToys = function(req, res, next) {
@@ -43,6 +43,9 @@ exports.addToy = function(req,res,next) {
         const description=req.body.description;
         const ageGroup = req.body.ageGroup;
         const toyType= req.body.toyType;
+        let zip = cities.zip_lookup(req.body.zipcode.toString());
+        const latitude = req.body.latitude || parseFloat(zip.latitude);
+        const longitude = req.body.longitude || parseFloat(zip.longitude);
         const rental_rate= req.body.rental_rate;
         const rental_type= req.body.rental_type;
         let img_url= req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1531881005/download_2.jpg";
@@ -108,7 +111,8 @@ exports.addToy = function(req,res,next) {
     city: city,
     state: state,
     zipcode: zipcode,
-    // geometry: geometry,
+    latitude: latitude,
+    longitude: longitude,
     description: description,
     ageGroup: ageGroup,
     toyType: toyType,
