@@ -6,6 +6,7 @@ const AuthenticationController = require('./controllers/authentication'),
       const path = require('path');
       const ToyController = require("./controllers/toy");
       const LeaseController = require('./controllers/lease');
+      const SearchController = require('./controllers/search');
       // Middleware to require login/auth
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
@@ -54,5 +55,10 @@ module.exports = function(app) {
   app.get('/api/toys/:toyId/lease/:leaseId', LeaseController.getOneLease);
   app.patch('/api/toys/:toyId/lease/:leaseId', LeaseController.editLease);
   app.delete('/api/toys/:toyId/lease/:leaseId', LeaseController.deleteLease);
+
+
+  app.get('/api', SearchController.findBygps);
+
+
 
 };

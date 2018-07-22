@@ -7,8 +7,8 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {search: '',
-    start_date: '',
-    end_date: '',
+    toy_type: '',
+    age: '',
     };
   }
 
@@ -31,31 +31,23 @@ class Search extends React.Component {
           value={this.state.search}
           onChange={this.handleChange('search')}
           className="search-bar"
-          placeholder="Finding toys near..."
+          placeholder="Enter zipcode or city"
         />
 
         <div className="search-dates">
           <div className="search-check-in">
-            <h5>Check In</h5>
-            <input
-              type="date"
-              min={minDate}
-              max={this.state.end_date}
-              value={this.state.start_date}
-              onChange={this.handleChange("start_date")}
-              className="start-date-input"
-            />
-          </div>
-
-          <div className="search-check-out">
-            <h5>Check Out</h5>
-            <input
-              type="date"
-              min={this.state.start_date}
-              value={this.state.end_date}
-              onChange={this.handleChange("end_date")}
-              className="start-date-input"
-            />
+            <h5>Toy type</h5>
+              <select defaultValue={this.state.toy_type}
+                onChange={this.handleChange("toy_type")}>
+                <option value="Outdoor Play">Outdoor Play</option>
+                <option value="Building Blocks">Building Blocks</option>
+                <option value="Action Figures">Action Figures</option>
+                <option value="Games and Puzzles">Games and Puzzles</option>
+                <option value="Arts and Crafts">Arts and Crafts</option>
+                <option value="Moving toys">Moving toys</option>
+                <option value="STEM toys">STEM toys</option>
+                <option value="Books">Books</option>
+              </select>
           </div>
 
           <button className="search-button" type="submit">Search</button>
