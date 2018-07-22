@@ -38,17 +38,20 @@ export const removeToy = id => dispatch => {
   .then(res => dispatch({type: REMOVE_TOY, id: id}));
 };
 
-export const fetchToysByGPS = gps => dispatch =>
-  ToyAPIUtil.fetchToysByGPS(gps)
-    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
-    .catch(err => console.log(err));
+export const fetchToysByGPS = (gps) => dispatch => {
+  return ToyAPIUtil.fetchToysByGPS(gps).then(response =>
+    dispatch({ type: RECEIVE_TOYS, payload: response })
+  );
+};
 
-export const fetchToysByZip = zip => dispatch =>
-  ToyAPIUtil.fetchToysByZip(zip)
-    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
-    .catch(err => console.log(err));
+export const fetchToysByZip = (zip) => dispatch => {
+  return ToyAPIUtil.fetchToysByZip(zip).then(response =>
+    dispatch({ type: RECEIVE_TOYS, payload: response })
+  );
+};
 
-export const fetchToysByCity = city => dispatch =>
-  ToyAPIUtil.fetchToysByCity(city)
-    .then(res => dispatch({type: RECEIVE_TOYS,payload: res}))
-    .catch(err => console.log(err));
+export const fetchToysByCity = (city) => dispatch => {
+  return ToyAPIUtil.fetchToysByCity(city).then(response =>
+    dispatch({ type: RECEIVE_TOYS, payload: response })
+  );
+};

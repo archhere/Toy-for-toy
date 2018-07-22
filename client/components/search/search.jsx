@@ -8,8 +8,11 @@ class Search extends React.Component {
     super(props);
     this.state = {search: '',
     toy_type: '',
-    age: '',
     };
+  }
+
+  componentDidMount(){
+    this.props.fetchToys();
   }
 
   handleChange(field) {
@@ -17,8 +20,11 @@ class Search extends React.Component {
  }
 
  handleSubmit() {
-   this.props.searchListings(this.state.search)
-     .then(this.props.history.push('/discover'));
+   let value = this.state.search.constructor.name;
+   console.log(value);
+
+     this.props.fetchToysByZip(this.state.search)
+       .then(this.props.history.push('/discover'));
  }
 
  render() {
@@ -27,12 +33,15 @@ class Search extends React.Component {
    return (
 
       <form onSubmit={() => this.handleSubmit()} className="search-form">
+        <div className="search-dates">
         <input
           value={this.state.search}
           onChange={this.handleChange('search')}
           className="search-bar"
-          placeholder="Enter zipcode or city"
+          placeholder="Enter zipcode or use your current location"
         />
+
+      </div>
 
         <div className="search-dates">
           <div className="search-check-in">

@@ -3,6 +3,7 @@ import authReducer from './auth_reducer';
 import userReducer from './user_reducer';
 import modalReducer from './modal_reducer';
 import toyReducer from './toy_reducer';
+import filterReducer from './filters_reducer';
 
 const rootReducer = combineReducers({
 
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   modal: modalReducer,
   toys: toyReducer,
+  filters: filterReducer
 });
 
 export default rootReducer;

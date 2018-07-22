@@ -128,40 +128,45 @@ exports.findBygps = function(req,res,next) {
         // http://localhost:5000/api/?zip=94538&range=4
     // -----------------------------------------------------------------------
 
-    exports.findBycity = function(req,res,next) {
-      let coord = getCoords(req.query.city.toString());
-
-      let range = parseInt(req.query.range);
-      let lat = parseFloat(coord.lat);
-      let long = parseFloat(coord.lng);
-      let newToys={};
-      let point1;
-      let point2;
-
-      Toy.find({},function(err,allToys){
-        if(!allToys) {
-          return res.status(422).send({error: 'No result found'});
-        } else{
-          allToys.forEach(toy => {
-
-            let zip1 = cities.zip_lookup(toy.zipcode.toString());
-              point1 = parseFloat(zip1.latitude);
-              point2 = parseFloat(zip1.longitude);
-              if (distance(lat, long, point1, point2) <= range) {
-                    newToys = Object.assign(newToys, { [toy._id]: toy });
-                  }
-
-              });
-
-                newToys = Object.assign(
-                        newToys,
-                        { city: req.query.city.toString() },
-                        { range: range }
-                      );
-                      res.json({ toys: newToys });
-                    }
-
-        }
-      );
-
-    };
+    // exports.findBycity = function(req,res,next) {
+    //   // let coord = getCoords(req.query.city.toString());
+    //   // console.log("coord",coord);
+    //   let range = parseInt(req.query.range);
+    //   // let lat = parseFloat(coord.lat);
+    //   // let long = parseFloat(coord.lng);
+    //   let newToys={};
+    //   let point1;
+    //   let point2;
+    //
+    //   Toy.find({},function(err,allToys){
+    //     if(!allToys) {
+    //       return res.status(422).send({error: 'No result found'});
+    //     } else{
+    //       allToys.forEach(toy => {
+    //         console.log("toy",toy);
+    //         let zip1 = cities.zip_lookup(toy.zipcode.toString());
+    //           point1 = parseFloat(zip1.latitude);
+    //           point2 = parseFloat(zip1.longitude);
+    //           getCoords(req.query.city.toString(),function(error,coord){
+    //             console.log("coord",coord);
+    //             if(!coord) {
+    //               return res.status(422).send({error: 'Cannot find this city'});
+    //             } else{
+    //               let lat = parseFloat(coord.lat);
+    //               let long = parseFloat(coord.lng);
+    //               if (distance(lat, long, point1, point2) <= range) {
+    //                     newToys = Object.assign(newToys, { [toy._id]: toy });
+    //                   }
+    //                   newToys = Object.assign(
+    //                           newToys,
+    //                           { city: req.query.city.toString() },
+    //                           { range: range }
+    //                         );
+    //                         res.json({ toys: newToys });
+    //                       }
+    //                     });
+    //                   });
+    //                 }
+    //               }
+    //             );
+    // };

@@ -64,8 +64,8 @@ module.exports = function(app) {
   // --------------------------------------------------------------------
 
   app.get('/api/search', SearchController.findBygps);
-  app.get('api/search/byzip', SearchController.findByzipcode);
-  app.get('api/search/bycity', SearchController.findBycity);
+  app.get('/api/search/byzip', SearchController.findByzipcode);
+  // app.get('/api/search/bycity', SearchController.findBycity);
 
 
 

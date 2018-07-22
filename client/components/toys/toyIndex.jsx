@@ -1,17 +1,17 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-// import SearchContainer from '../search/search_container';
+import SearchContainer from '../search/search_container';
 
 class ToyIndex extends React.Component {
-  componentDidMount(){
-    this.props.fetchToys();
-  }
+  // componentDidMount(){
+  //   this.props.fetchToys();
+  // }
 
   handleCategory(field) {
-    // return (e) => {
-    //   this.props.receiveFilter(field);
-    //   this.props.history.push('/discover');
-    // };
+    return (e) => {
+      this.props.receiveFilter(field);
+      this.props.history.push('/discover');
+    };
   }
 
   handleGroup(capacity) {
@@ -23,7 +23,7 @@ class ToyIndex extends React.Component {
 
 
   render() {
-    if (this.props.toys.length <= 1) return null;
+    // if (this.props.toys.length <= 1) return null;
 
     return (
       <div className="home-container1">
@@ -31,7 +31,7 @@ class ToyIndex extends React.Component {
             <div className="search-container">
               <h2>Tired of buying new toys all the time?</h2>
               <p className="home-text">Rent toys at a budget or rent your unused toys and make money</p>
-
+              <SearchContainer />
 
               <div className="sub-search">
                 <Link className="or-text" to="/discover">Not sure where to look? Browse some popular toys!</Link>
