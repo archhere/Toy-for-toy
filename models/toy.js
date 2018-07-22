@@ -27,17 +27,25 @@ const ToySchema = new Schema({
     type: Number,
     required: true
   },
-  geometry: {
-    type: {
-      type: String,
-      default: "Point"
-      //unique:true
-    },
-    coordinates: {
-      type: [Number],
-      index: "2dsphere"
-    }
+  latitude: {
+    type: Number,
+    required: true
   },
+  longitude: {
+    type: Number,
+    required: true
+  },
+  // geometry: {
+  //   type: {
+  //     type: String,
+  //     default: "Point"
+  //     //unique:true
+  //   },
+  //   coordinates: {
+  //     type: [Number],
+  //     index: "2dsphere"
+  //   }
+  // },
   description: {
     type: String,
     required: true

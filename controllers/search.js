@@ -30,25 +30,34 @@ exports.findBygps = function(req,res,next) {
       parseFloat(req.query.latitude),
       parseFloat(req.query.longitude)
     );
+    console.log(req.query);
+    console.log("zip",zip);
     let range = parseInt(req.query.range);
+    console.log("range",range);
     let lat = parseFloat(req.query.latitude);
     let long = parseFloat(req.query.longitude);
 
-    let newToys;
+    let newToys={};
+    let point1;
+    let point2;
     Toy.find({},function(err,allToys){
       console.log("AllToys",allToys);
       if(!allToys) {
         return res.status(422).send({error: 'No result found'});
       } else{
         allToys.forEach(toy => {
-            if (toy.geometry.coordinates) {
-              let point = toy.geometry.coordinates;
-
-              if (distance(lat, long, point[0], point[1]) <= range) {
+            if (toy.latitude) {
+              point1 = toy.latitude;
+            if (toy.longitude) {
+              point2 = toy.longitude;
+            }
+            console.log("distance",distance(lat, long, point1, point2));
+              if (distance(lat, long, point1, point2) <= range) {
                     newToys = Object.assign(newToys, { [toy._id]: toy });
                   }
                 }
               });
+              console.log("newToys",newToys);
               newToys = Object.assign(
                       newToys,
                       { zip: zip.zip_code.toString() },
@@ -60,3 +69,5 @@ exports.findBygps = function(req,res,next) {
       }
     );
   };
+
+  
