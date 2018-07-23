@@ -442,7 +442,7 @@ button:focus {outline:0;}
 .or-text {
   text-decoration: none;
   text-align: center;
-  padding-top: 30px;
+  /* padding-top: 30px; */
   padding-right: 5px;
   font-size: 15px;
   color: #767676;
@@ -558,9 +558,17 @@ button:focus {outline:0;}
   margin-right: 5px;
 }
 
+#map {
+  min-width: 30vw;
+
+  height: calc(100vh - 60px);
+
+}
+
+
 
 .home-category1 {
-  /* height: 338px; */
+  height: 338px;
   cursor: pointer;
 
 }
@@ -590,11 +598,17 @@ button:focus {outline:0;}
   justify-content: flex-end;
   padding-top: 65px;
 
+}
+
+li{
+  list-style: none;
+}
+
+
   .listing-filter {
     overflow-y: auto;
     width: 194px;
   }
-}
 
 .index-map-container {
   display: flex;

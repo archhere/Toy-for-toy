@@ -3,8 +3,8 @@ import {RECEIVE_FILTER,
   CLEAR_FILTERS,
   RECEIVE_PRICE_FILTER,
   REMOVE_PRICE_FILTER,
-  RECEIVE_GROUP_FILTER,
-  REMOVE_GROUP_FILTER } from '../actions/filter_actions';
+  RECEIVE_RANGE_FILTER,
+  REMOVE_RANGE_FILTER } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const defaultState = ({
@@ -26,10 +26,10 @@ const filtersReducer = (state = defaultState, action) => {
       return merge({}, state, {price: action.price});
     case REMOVE_PRICE_FILTER:
       return merge({}, state, {price: 122493});
-    case RECEIVE_GROUP_FILTER:
-      return merge({}, state, {capacity: action.capacity});
-    case REMOVE_GROUP_FILTER:
-      return merge({}, state, {capacity: 1});
+    case RECEIVE_RANGE_FILTER:
+      return merge({}, state, {range: action.range});
+    case REMOVE_RANGE_FILTER:
+      return merge({}, state, {range: 50});
     default:
       return state;
   }

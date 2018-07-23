@@ -5,11 +5,34 @@ class ListingsIndex extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.requestAllToys();
+    // navigator.geolocation.getCurrentPosition(
+    //   pos => {
+    //     this.setState({ pos: pos });
+    //     this.props.fetchSpotsByGPS({
+    //       latitude: pos.coords.latitude,
+    //       longitude: pos.coords.longitude,
+    //       range: this.state.range
+    //     });
+    //   },
+    //   () => {
+    //     this.props.fetchToysByZip({
+    //       zip: this.state.zip,
+    //       range: this.state.range
+    //     });
+    //   }
+    // );
   }
 
   componentWillUnmount() {
     // this.props.clearSearchListings();
     this.props.clearFilters();
+  }
+
+  componentWillReceiveProps(nextProps){
+    // if(this.props !== nextProps){
+    //   this.state.filters
+    // }
+    console.log(nextProps);
   }
 
   applyFilters(listings) {

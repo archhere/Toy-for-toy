@@ -4,8 +4,8 @@ import {receiveFilter,
   removeFilter,
   receivePriceFilter,
   removePriceFilter,
-  receiveGroupFilter,
-  removeGroupFilter,
+  receiveRangeFilter,
+  removeRangeFilter,
   clearAllFilters} from '../../actions/filter_actions';
 
 const mapStateToProps = (state) => ({
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
     removeFilter: filter => dispatch(removeFilter(filter)),
     receivePriceFilter: price => dispatch(receivePriceFilter(price)),
     removePriceFilter: price => dispatch(removePriceFilter(price)),
-    receiveGroupFilter: capacity => dispatch(receiveGroupFilter(capacity)),
-    removeGroupFilter: capacity => dispatch(removeGroupFilter(capacity)),
+    receiveRangeFilter: range => dispatch(receiveRangeFilter(range)),
+    removeRangeFilter: range => dispatch(removeRangeFilter(range)),
     clearAllFilters: () => dispatch(clearAllFilters()),
 });
 

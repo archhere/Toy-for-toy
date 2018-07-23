@@ -31,10 +31,8 @@ class ToyIndex extends React.Component {
             <div className="search-container">
               <h2>Tired of buying new toys all the time?</h2>
               <p className="home-text">Rent toys at a budget or rent your unused toys and make money</p>
-              <SearchContainer />
-
               <div className="sub-search">
-                <Link className="or-text" to="/discover">Not sure where to look? Browse some popular toys!</Link>
+                <Link className="or-text" to="/discover">Click here to search!</Link>
 
 
               </div>

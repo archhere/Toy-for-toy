@@ -25,14 +25,16 @@ class Filter extends React.Component {
     };
   }
 
-  toggleCapacityFilter(capacity) {
-    const { filters, receiveGroupFilter, removeGroupFilter } = this.props;
+  toggleRangeFilter(range) {
+    const { filters, receiveRangeFilter, removeRangeFilter } = this.props;
 
     return (e) => {
-      if (filters['capacity'] === capacity) removeGroupFilter(capacity);
-      else receiveGroupFilter(capacity);
+      if (filters['range'] === range) removeRangeFilter(range);
+      else receiveRangeFilter(range);
     };
   }
+
+
 
   render() {
     const { filters } = this.props;
@@ -158,43 +160,52 @@ class Filter extends React.Component {
           </li>
         </ul>
 
-        <h3>Group Size</h3>
+        <h3>Range</h3>
         <ul>
           <li className='filter-item'>
             <input
               className='checkbox'
               type='checkbox'
-              onClick={this.toggleCapacityFilter(1)}
-              checked={filters['capacity'] === 1}
+              onClick={this.toggleRangeFilter(50)}
+              checked={filters['range'] === 50}
               />
-              <label>Any Size</label>
+            <label>Any Range</label>
           </li>
           <li className='filter-item'>
             <input
               className='checkbox'
               type='checkbox'
-              onClick={this.toggleCapacityFilter(10)}
-              checked={filters['capacity'] === 10}
+              onClick={this.toggleRangeFilter(5)}
+              checked={filters['range'] === 5}
               />
-              <label>10 or more</label>
+            <label>under 5 miles</label>
           </li>
           <li className='filter-item'>
             <input
               className='checkbox'
               type='checkbox'
-              onClick={this.toggleCapacityFilter(15)}
-              checked={filters['capacity'] === 15}
+              onClick={this.toggleRangeFilter(10)}
+              checked={filters['range'] === 10}
               />
-              <label>15 or more</label>
+            <label>under 10 miles</label>
           </li>
           <li className='filter-item'>
             <input
               className='checkbox'
               type='checkbox'
-              onClick={this.toggleCapacityFilter(20)}
-              checked={filters['capacity'] === 20}
+              onClick={this.toggleRangeFilter(20)}
+              checked={filters['range'] === 20}
               />
-              <label>20 or more</label>
+            <label>under 20 miles</label>
+          </li>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleRangeFilter(30)}
+              checked={filters['range'] === 30}
+              />
+            <label>under 30 miles</label>
           </li>
         </ul>
       </div>

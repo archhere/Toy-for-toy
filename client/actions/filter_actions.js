@@ -3,8 +3,8 @@ export const REMOVE_FILTER = "REMOVE_FILTER";
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
 export const RECEIVE_PRICE_FILTER = "RECEIVE_PRICE_FILTER";
 export const REMOVE_PRICE_FILTER = "REMOVE_PRICE_FILTER";
-export const RECEIVE_GROUP_FILTER = "RECEIVE_GROUP_FILTER";
-export const REMOVE_GROUP_FILTER = "REMOVE_GROUP_FILTER";
+export const RECEIVE_RANGE_FILTER = "RECEIVE_RANGE_FILTER";
+export const REMOVE_RANGE_FILTER = "REMOVE_RANGE_FILTER";
 
 export const receiveFilter = filter => ({
   type: RECEIVE_FILTER,
@@ -29,11 +29,11 @@ export const removePriceFilter = () => ({
   type: REMOVE_PRICE_FILTER
 });
 
-export const receiveGroupFilter = capacity => ({
-  type: RECEIVE_GROUP_FILTER,
-  capacity
+export const receiveRangeFilter = range => ({
+  type: RECEIVE_RANGE_FILTER,
+  range
 });
 
-export const removeGroupFilter = () => ({
-  type: REMOVE_GROUP_FILTER
+export const removeRangeFilter = () => ({
+  type: REMOVE_RANGE_FILTER
 });

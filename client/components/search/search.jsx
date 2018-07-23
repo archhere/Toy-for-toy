@@ -8,21 +8,16 @@ class Search extends React.Component {
     super(props);
     this.state = {search: '',
     toy_type: '',
+    range: 50,
     };
   }
 
-  componentDidMount(){
-    this.props.fetchToys();
-  }
 
   handleChange(field) {
    return (e) => this.setState( {[field]: e.target.value} );
  }
 
  handleSubmit() {
-   let value = this.state.search.constructor.name;
-   console.log(value);
-
      this.props.fetchToysByZip(this.state.search)
        .then(this.props.history.push('/discover'));
  }
@@ -56,6 +51,20 @@ class Search extends React.Component {
                 <option value="Moving toys">Moving toys</option>
                 <option value="STEM toys">STEM toys</option>
                 <option value="Books">Books</option>
+              </select>
+          </div>
+
+          <div className="search-check-in">
+            <h5>Range in miles</h5>
+              <select defaultValue={this.state.range}
+                onChange={this.handleChange("range")}>
+                <option value="5">5 miles</option>
+                <option value='10'>10 miles</option>
+                <option value='15'>15 miles</option>
+                <option value='20'>20 miles</option>
+                <option value='30'>30 miles</option>
+                <option value='40'>40 miles</option>
+                <option value='50'>50 miles</option>
               </select>
           </div>
 
