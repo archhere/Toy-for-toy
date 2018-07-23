@@ -22,7 +22,7 @@ class Navbar extends React.Component {
       action2 = () => this.props.openModal({modal: 'login'});
     } else{
       value1 = 'MY TOYS';
-      action1 = "";
+      action1 = () => (null);
       value2 = 'LOG OUT';
       action2 = (e)=> this.props.logout();
     }

@@ -4,6 +4,10 @@ import ListingsIndexContainer from '../listings/listings_index_container';
 
 class MapSearch extends React.Component {
 
+  componentDidMount(){
+    this.props.fetchToys();
+  }
+
 
   render() {
 

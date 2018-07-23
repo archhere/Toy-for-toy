@@ -56,7 +56,7 @@ export default class MarkerManager {
   createMarker(toy) {
 
     let contentString = '<div >' +
-      `${toy.name}` +
+      `${toy.description}` + ' available at ' + `${toy.line1}`;
       '</div >';
 
     let infoWindow = new window.google.maps.InfoWindow({
