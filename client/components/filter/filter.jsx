@@ -34,6 +34,15 @@ class Filter extends React.Component {
     };
   }
 
+  toggleLocationFilter(location) {
+    const { filters, receiveLocationFilter, removeLocationFilter } = this.props;
+
+    return (e) => {
+      if (filters['location'] === location) removeLocationFilter(location);
+      else receiveLocationFilter(location);
+    };
+  }
+
 
 
   render() {
@@ -206,6 +215,55 @@ class Filter extends React.Component {
               checked={filters['range'] === 30}
               />
             <label>under 30 miles</label>
+          </li>
+        </ul>
+
+        <h3>Location</h3>
+        <ul>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleLocationFilter('Fremont')}
+              checked={filters['location'] === 'Fremont'}
+              />
+            <label>Fremont</label>
+          </li>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleLocationFilter('San Fransisco')}
+              checked={filters['location'] === 'San Fransisco'}
+              />
+            <label>San Fransisco</label>
+          </li>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleLocationFilter('Los Angeles')}
+              checked={filters['location'] === 'Los Angeles'}
+              />
+            <label>Los Angeles</label>
+          </li>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleLocationFilter('Santa Cruz')}
+              checked={filters['location'] === 'Santa Cruz'}
+              />
+            <label>San Jose</label>
+          </li>
+          <li className='filter-item'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onClick={this.toggleLocationFilter('Geolocation')}
+              checked={filters['location'] === 'Geolocation'}
+              />
+            <label>Your current location</label>
           </li>
         </ul>
       </div>

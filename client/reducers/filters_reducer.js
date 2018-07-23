@@ -4,13 +4,16 @@ import {RECEIVE_FILTER,
   RECEIVE_PRICE_FILTER,
   REMOVE_PRICE_FILTER,
   RECEIVE_RANGE_FILTER,
-  REMOVE_RANGE_FILTER } from '../actions/filter_actions';
+  REMOVE_RANGE_FILTER,
+  RECEIVE_LOCATION_FILTER,
+  REMOVE_LOCATION_FILTER } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const defaultState = ({
   range: 50,
   price: 122493,
   type: "",
+  location: "Fremont",
 });
 
 const filtersReducer = (state = defaultState, action) => {
@@ -30,6 +33,10 @@ const filtersReducer = (state = defaultState, action) => {
       return merge({}, state, {range: action.range});
     case REMOVE_RANGE_FILTER:
       return merge({}, state, {range: 50});
+    case RECEIVE_LOCATION_FILTER:
+      return merge({}, state, {location: action.location});
+    case REMOVE_LOCATION_FILTER:
+      return merge({}, state, {location: "Fremont"});
     default:
       return state;
   }

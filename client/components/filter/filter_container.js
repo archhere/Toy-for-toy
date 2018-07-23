@@ -6,6 +6,8 @@ import {receiveFilter,
   removePriceFilter,
   receiveRangeFilter,
   removeRangeFilter,
+  receiveLocationFilter,
+  removeLocationFilter,
   clearAllFilters} from '../../actions/filter_actions';
 
 const mapStateToProps = (state) => ({
@@ -19,6 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
     removePriceFilter: price => dispatch(removePriceFilter(price)),
     receiveRangeFilter: range => dispatch(receiveRangeFilter(range)),
     removeRangeFilter: range => dispatch(removeRangeFilter(range)),
+    receiveLocationFilter: location => dispatch(receiveLocationFilter(location)),
+    removeLocationFilter: location => dispatch(removeLocationFilter(location)),
     clearAllFilters: () => dispatch(clearAllFilters()),
 });
 

@@ -13,7 +13,7 @@ class ListingsMap extends React.Component {
   componentDidMount() {
     const mapOptions = {
       center: { lat: 37.5483, lng: -121.9886 },
-      zoom: 11,
+      zoom: 8,
       clickableIcons: false,
       mapTypeControlOptions: {
         style: window.google.maps.MapTypeControlStyle.DROPDOWN_MENU },

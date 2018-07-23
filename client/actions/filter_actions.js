@@ -5,6 +5,8 @@ export const RECEIVE_PRICE_FILTER = "RECEIVE_PRICE_FILTER";
 export const REMOVE_PRICE_FILTER = "REMOVE_PRICE_FILTER";
 export const RECEIVE_RANGE_FILTER = "RECEIVE_RANGE_FILTER";
 export const REMOVE_RANGE_FILTER = "REMOVE_RANGE_FILTER";
+export const RECEIVE_LOCATION_FILTER = "RECEIVE_LOCATION_FILTER";
+export const REMOVE_LOCATION_FILTER = "REMOVE_LOCATION_FILTER";
 
 export const receiveFilter = filter => ({
   type: RECEIVE_FILTER,
@@ -36,4 +38,13 @@ export const receiveRangeFilter = range => ({
 
 export const removeRangeFilter = () => ({
   type: REMOVE_RANGE_FILTER
+});
+
+export const receiveLocationFilter = location => ({
+  type: RECEIVE_LOCATION_FILTER,
+  location
+});
+
+export const removeLocationFilter = () => ({
+  type: REMOVE_LOCATION_FILTER
 });
