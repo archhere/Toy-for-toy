@@ -1,11 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import SearchContainer from '../search/search_container';
+// import SearchContainer from '../search/search_container';
 
 class ToyIndex extends React.Component {
-  // componentDidMount(){
-  //   this.props.fetchToys();
-  // }
 
   handleCategory(field) {
     return (e) => {
@@ -13,12 +10,6 @@ class ToyIndex extends React.Component {
       this.props.history.push('/discover');
     };
   }
-
-  handleGroup(capacity) {
-    // return (e) => this.props.receiveGroupFilter(20)
-    //   .then( () => this.props.history.push('/discover'));
-  }
-
 
 
 
@@ -45,7 +36,7 @@ class ToyIndex extends React.Component {
           <div className="category-wrapper">
           <div className="category-grid">
             <div className="category-holder">
-              <img className="home-category" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4LsZuj-GE81G3f3KnlL04oVu36oSHdLVOjn7iHwuYJPYhTFwZ" onClick={this.handleCategory('Outdoor Play')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532409430/BounceHouseRainforestRun.gif" onClick={this.handleCategory('Outdoor Play')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Outdoor Play')} className="home-category-title">Outdoor Play</p>
                 <p className="options-near-me">Popular toys near me</p>
@@ -53,7 +44,7 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://img.grouponcdn.com/deal/4Qt9XS6E18GC46yMMepqqyHRmKLU/4Q-1864x1119/v1/c700x420.jpg" onClick={this.handleCategory('Building blocks')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532409979/train.jpg" onClick={this.handleCategory('Building blocks')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Building blocks')}>Building blocks</p>
                 <p className="options-near-me">Popular toys near me</p>
@@ -61,7 +52,7 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://i.ytimg.com/vi/4EKA5WYOw30/maxresdefault.jpg" onClick={this.handleCategory('Action figures')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411856/maxresdefault.jpg" onClick={this.handleCategory('Action figures')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Action figures')}>Action figures</p>
                 <p className="options-near-me">Popular toys near me</p>
@@ -69,15 +60,15 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="http://www.chboothlibrary.org/wp-content/uploads/2015/01/StackOfGames.jpg" onClick={this.handleCategory('Games and puzzles')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532410653/boardgames.jpg" onClick={this.handleCategory('Games and puzzles')}></img>
               <div className="home-text-container">
-                <p className="home-category-title" onClick={this.handleCategory('Games and puzzles')}>Games and puzzles</p>
+                <p className="home-category-title" onClick={this.handleCategory('Games and puzzles')}>Games & puzzles</p>
                 <p className="options-near-me">Popular toys near me</p>
               </div>
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="http://dont-touch.me/wp-content/uploads/2018/04/art-project-ideas-for-teens-arts-and-crafts-ideas-40-easy-crafts-for-teens-tweens-happiness-is-download.png" onClick={this.handleCategory('Arts and crafts')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411207/tile-art-for-kids-bellsfb.jpg" onClick={this.handleCategory('Arts and crafts')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Arts and crafts')}>Arts and crafts</p>
                 <p className="options-near-me">Popular toys near me</p>
@@ -85,15 +76,15 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://i.ytimg.com/vi/faqeah154H0/maxresdefault.jpg" onClick={this.handleCategory('Moving toys')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411394/Kids-Sitting-On-Ride-On.jpg" onClick={this.handleCategory('Moving toys')}></img>
               <div className="home-text-container">
-                <p className="home-category-title" onClick={this.handleCategory('Vehicles and moving toys')}>Moving toys</p>
+                <p className="home-category-title" onClick={this.handleCategory('Moving toys')}>Moving toys</p>
                 <p className="options-near-me">Popular toys near me</p>
               </div>
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://cdn.thewirecutter.com/wp-content/uploads/2017/08/learning-toys-2x1-fullres-5308-1024x512.jpg" onClick={this.handleCategory('STEM toys')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411512/molecular-models-514410727-59fb34f513f129003769b6a7.jpg" onClick={this.handleCategory('STEM toys')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('STEM toys')}>STEM toys</p>
                 <p className="options-near-me">Popular toys near me</p>
@@ -101,7 +92,7 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://ae01.alicdn.com/kf/HTB17cuiJFXXXXb5XpXXq6xXFXXXk/224230635/HTB17cuiJFXXXXb5XpXXq6xXFXXXk.jpg" onClick={this.handleCategory('STEM toys')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411595/HTB17cuiJFXXXXb5XpXXq6xXFXXXk.jpg" onClick={this.handleCategory('STEM toys')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Books')}>Books</p>
                 <p className="options-near-me">Kids books near me</p>

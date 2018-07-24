@@ -104,10 +104,10 @@ class Filter extends React.Component {
             <input
               className='checkbox'
               type='checkbox'
-              onClick={this.toggleBoolean('Vehicles and moving toys')}
-              checked={filters['Vehicles and moving toys'] === true}
+              onClick={this.toggleBoolean('Moving toys')}
+              checked={filters['Moving toys'] === true}
               />
-              <label>Vehicles and moving toys</label>
+            <label>Moving toys</label>
           </li>
           <li className='filter-item'>
             <input

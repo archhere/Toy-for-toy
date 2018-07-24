@@ -27,13 +27,16 @@ class ListingsMap extends React.Component {
     this.map = new window.google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map,this.props.listings);
     this.MarkerManager.drop();
-    this.MarkerManager.updateMarkers(this.props.listings);
+    // this.MarkerManager.updateMarkers(this.props.listings);
     // console.log(this.MarkerManager);
 
   }
 
+  componentWillReceiveProps(nextProps){
+    console.log("called");
+  }
+
   componentDidUpdate() {
-    console.log(this.MarkerManager);
     this.MarkerManager.updateMarkers(this.props.listings);
   }
 

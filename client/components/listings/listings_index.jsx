@@ -44,7 +44,7 @@ class ListingsIndex extends React.Component {
     if (filters['Action figures']) filteredListings = filteredListings.filter(listing => listing.category === "Action figures");
     if (filters['Games and puzzles']) filteredListings = filteredListings.filter(listing => listing.category === "Games and puzzles");
     if (filters['Arts and crafts']) filteredListings = filteredListings.filter(listing => listing.category === "Arts and crafts");
-    if (filters['Vehicles and moving toys']) filteredListings = filteredListings.filter(listing => listing.category === "Vehicles and moving toys");
+    if (filters['Moving toys']) filteredListings = filteredListings.filter(listing => listing.category === "Moving toys");
     if (filters['STEM toys']) filteredListings = filteredListings.filter(listing => listing.category === "STEM toys");
     if (filters['Books']) filteredListings = filteredListings.filter(listing => listing.category === "Books");
 

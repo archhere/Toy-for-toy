@@ -477,13 +477,13 @@ button:focus {outline:0;}
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
   width: 70%;
 }
 
 .home-category {
-  height: 338px;
+  /* height: 338px; */
   cursor: pointer;
   width: 100%;
 }
@@ -527,8 +527,8 @@ button:focus {outline:0;}
 }
 
 .home-text-container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   background: #FA1943;
   text-align: center;
   /* padding: 15px; */
@@ -568,8 +568,9 @@ button:focus {outline:0;}
 
 
 .home-category1 {
-  height: 338px;
+  /* height: 338px; */
   cursor: pointer;
+
 
 }
 
@@ -612,4 +613,9 @@ li{
 
 .index-map-container {
   display: flex;
+}
+
+.choiceforview{
+  display: flex;
+  padding-bottom: 5px;
 }
