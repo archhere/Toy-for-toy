@@ -83,13 +83,11 @@ class ListingsIndex extends React.Component {
   render() {
     // const { listingPhotos } = this.props;
     return (
-      <main className="discover-container">
-        <FilterContainer />
 
         <section className="listing-index" key={Math.random()}>
           {this.renderListingItem()}
         </section>
-      </main>
+      
     );
   }
 }

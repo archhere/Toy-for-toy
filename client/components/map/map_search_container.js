@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 // import { fetchListings } from '../../actions/listing_actions';
 import { fetchToysByGPS, fetchToysByZip,fetchToysByCity,requestAllToys } from "../../actions/toy_actions";
-import MapSearch from './map_search';
+import ListingMap from './listings_map';
 
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
+  console.log(ownProps);
   return {
-    toys: Object.values(state.toys),
+    toys: ownProps.props,
   };
 };
 
@@ -19,4 +20,4 @@ const mapDispatchToprops = (dispatch) => ({
   fetchToys: () => dispatch(requestAllToys())
 });
 
-export default connect(mapStateToProps, mapDispatchToprops)(MapSearch);
+export default connect(mapStateToProps, mapDispatchToprops)(ListingMap);

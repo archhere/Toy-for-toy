@@ -619,3 +619,58 @@ li{
   display: flex;
   padding-bottom: 5px;
 }
+
+.toggleDiv{
+  margin-left: 5px;
+}
+
+
+.hamburgerouter{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  position: relative;
+  border: 1px solid #FE422D;
+  padding: 5px;
+  /* padding-left: 5px; */
+}
+
+.hamburgerouter1{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  position: relative;
+  background: #FE422D;
+  padding: 5px;
+  color:  white;
+  /* padding-left: 5px; */
+}
+.hamburger {
+  width: 25px;
+}
+
+.mapmarker {
+  width: 40px;
+}
+
+.innertoggleDiv{
+  display: flex;
+}
+
+.fas{
+  width: 25px;
+}
+
+.finalouter1234{
+  display: flex;
+}

@@ -9,7 +9,8 @@ import ToyIndexContainer from './toys/toyIndex_container';
 import Footer from './footer';
 import Modal from './modal/modal';
 import SliderContainer from './slider/slider_container';
-import MapSearchContainer from './map/map_search_container';
+// import MapSearchContainer from './map/map_search_container';
+import FilterContainer from './filter/filter_container';
 import {
   Route,
   Redirect,
@@ -40,7 +41,7 @@ const App = () => {
 
       <Switch>
 
-        <ProtectedRoute path="/discover" component={ MapSearchContainer } />
+        <ProtectedRoute path="/discover" component={ FilterContainer } />
         <ProtectedRoute exact path="/" component={ToyIndexContainer} />
 
       </Switch>

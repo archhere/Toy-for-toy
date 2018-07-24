@@ -9,9 +9,11 @@ import {receiveFilter,
   receiveLocationFilter,
   removeLocationFilter,
   clearAllFilters} from '../../actions/filter_actions';
+  import { fetchToysByGPS, fetchToysByZip,fetchToysByCity,requestAllToys } from "../../actions/toy_actions";
 
 const mapStateToProps = (state) => ({
-  filters: state.filters
+  filters: state.filters,
+  toys: Object.values(state.toys)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -24,6 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
     receiveLocationFilter: location => dispatch(receiveLocationFilter(location)),
     removeLocationFilter: location => dispatch(removeLocationFilter(location)),
     clearAllFilters: () => dispatch(clearAllFilters()),
+    fetchToys: () => dispatch(requestAllToys())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

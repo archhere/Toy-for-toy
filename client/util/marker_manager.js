@@ -54,10 +54,14 @@ export default class MarkerManager {
   }
 
   createMarker(toy) {
-
+    console.log("markermanagertoy",toy);
     let contentString = '<div >' +
       `${toy.description}` + ' available at ' + `${toy.line1}`;
       '</div >';
+
+      // let contentString = '<div >' +
+      //   `${toy.description}` + ' available at ' + `${toy.line1}` + <img src = {toy.img_url} ;
+      //   '</div >';
 
     let infoWindow = new window.google.maps.InfoWindow({
       content: contentString
