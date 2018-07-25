@@ -24,11 +24,7 @@ class ListingsIndex extends React.Component {
     // );
   }
 
-  componentWillUnmount() {
-    // this.props.clearSearchListings();
-    
-    this.props.clearFilters();
-  }
+  
 
   componentWillReceiveProps(nextProps){
     // if(this.props !== nextProps){

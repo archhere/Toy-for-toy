@@ -8,7 +8,7 @@ import {receiveFilter,
   removeRangeFilter,
   receiveLocationFilter,
   removeLocationFilter,
-  clearAllFilters} from '../../actions/filter_actions';
+  clearFilters} from '../../actions/filter_actions';
   import { fetchToysByGPS, fetchToysByZip,fetchToysByCity,requestAllToys } from "../../actions/toy_actions";
 
 const mapStateToProps = (state) => ({
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
     removeRangeFilter: range => dispatch(removeRangeFilter(range)),
     receiveLocationFilter: location => dispatch(receiveLocationFilter(location)),
     removeLocationFilter: location => dispatch(removeLocationFilter(location)),
-    clearAllFilters: () => dispatch(clearAllFilters()),
+    clearFilters: () => dispatch(clearFilters()),
     fetchToys: () => dispatch(requestAllToys())
 });
 

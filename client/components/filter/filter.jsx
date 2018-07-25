@@ -21,6 +21,12 @@ class Filter extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    // this.props.clearSearchListings();
+
+    this.props.clearFilters();
+  }
+
   componentDidMount(){
     this.props.fetchToys();
   }
