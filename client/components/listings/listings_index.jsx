@@ -2,10 +2,12 @@ import React from 'react';
 import FilterContainer from '../filter/filter_container';
 
 class ListingsIndex extends React.Component {
+
+
   componentDidMount() {
     window.scrollTo(0, 0);
 
-    // this.props.requestAllToys();
+
     // navigator.geolocation.getCurrentPosition(
     //   pos => {
     //     this.setState({ pos: pos });
@@ -24,7 +26,7 @@ class ListingsIndex extends React.Component {
     // );
   }
 
-  
+
 
   componentWillReceiveProps(nextProps){
     // if(this.props !== nextProps){

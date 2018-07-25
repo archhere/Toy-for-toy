@@ -6,7 +6,10 @@ class Filter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      component: 'ListingsIndexContainer'
+      component: 'ListingsIndexContainer',
+      latitude: 0,
+      longitude: 0,
+
     };
   }
 
@@ -21,6 +24,20 @@ class Filter extends React.Component {
     };
   }
 
+  distance(lat1, lon1, lat2, lon2) {
+    let radlat1 = (Math.PI * lat1) / 180;
+    let radlat2 = (Math.PI * lat2) / 180;
+    let theta = lon1 - lon2;
+    let radtheta = (Math.PI * theta) / 180;
+    let dist =
+      Math.sin(radlat1) * Math.sin(radlat2) +
+      Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist);
+    dist = (dist * 180) / Math.PI;
+    dist = dist * 60 * 1.1515;
+    return dist;
+  }
+
   componentWillUnmount() {
     // this.props.clearSearchListings();
 
@@ -29,6 +46,14 @@ class Filter extends React.Component {
 
   componentDidMount(){
     this.props.fetchToys();
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({latitude: position.coords.latitude,
+          longitude: position.coords.longitude});
+      }
+    );
+    console.log(this.state.latitude);
   }
 
   componentWillReceiveProps(nextProps){
@@ -77,6 +102,8 @@ class Filter extends React.Component {
 
   render() {
     const { filters } = this.props;
+
+
     let unfilteredToys = this.props.toys;
     let toyTypes = ['Outdoor Play', 'Building blocks', 'Action figures',
     'Games and puzzles', 'Arts and crafts', 'Moving toys', 'STEM toys', 'Books'];
@@ -85,7 +112,7 @@ class Filter extends React.Component {
       console.log(toy);
       if (filters[toy] === true) filteredToyType.push(toy);
     });
-    console.log(filteredToyType);
+
     let toy1;
     if (!filteredToyType.length){
       toy1 = unfilteredToys;
@@ -97,12 +124,42 @@ class Filter extends React.Component {
       });
     }
 
-    let toys = toy1.filter(toy => toy.rental_rate <= filters.price);
+    let toy2;
+    let range = filters.range;
+    let lat1; let long1;
+    if (filters.location === 'Fremont') {
+      lat1 = 37.5483;
+      long1 = -121.9886;
+    } else if (filters.location === 'San Fransisco') {
+      lat1 = 37.7749;
+      long1 = -122.4194;
+    } else if(filters.location === 'Los Angeles'){
+      lat1 = 34.0522;
+      long1 = -118.2437;
+    } else if(filters.location === 'Santa Cruz'){
+      lat1 = 36.9741;
+      long1 = -122.0308;
+    }
+    if (filters.location === 'Geolocation'){
+      toy2 = toy1.filter((toy) => {
+        return this.distance(toy.latitude,toy.longitude,this.state.latitude,this.state.longitude) <= range;
+      });
+    } else {
+      toy2 = toy1.filter((toy) => {
+        return this.distance(toy.latitude,toy.longitude,lat1,long1) <= range;
+    });
+  }
+
+    let toys = toy2.filter(toy => toy.rental_rate <= filters.price);
     const components = {
       'ListingsIndexContainer': <ListingsIndexContainer props = {toys}/>,
       'MapSearchContainer': <MapSearchContainer props = {toys}/>
     };
+
+
     const chosenComponent = this.state.component;
+
+
     return (
       <div class="finalouter1234">
         <div className="toggleDiv">
@@ -329,7 +386,7 @@ class Filter extends React.Component {
                   onClick={this.toggleLocationFilter('Santa Cruz')}
                   checked={filters['location'] === 'Santa Cruz'}
                   />
-                <label>San Jose</label>
+                <label>Santa Cruz</label>
               </li>
               <li className='filter-item'>
                 <input
@@ -343,9 +400,12 @@ class Filter extends React.Component {
             </ul>
           </div>
         </div>
+
+
         <div class="changes">
           {components[chosenComponent]}
         </div>
+
       </div>
     );
   }
