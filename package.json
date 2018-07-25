@@ -9,9 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -d -w",
-    "dev": "nodemon server.js",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -50,7 +49,6 @@
     "react-cookies": "^0.1.0",
     "react-dom": "^16.4.1",
     "react-geolocated": "^2.4.0",
-    "react-geolocation": "^1.0.4",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
