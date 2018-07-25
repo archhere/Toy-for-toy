@@ -7,9 +7,10 @@ import { clearFilters } from '../../actions/filter_actions';
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
   return {
-    listings: Object.values(state.toys),
+    // listings: Object.values(state.toys),
     // searchListings: Object.values(state.searchedListings),
-    filters: state.filters
+    filters: state.filters,
+    listings: ownProps.props
   };
 
 };

@@ -71,9 +71,30 @@ class Filter extends React.Component {
 
   render() {
     const { filters } = this.props;
+    let unfilteredToys = this.props.toys;
+    let toyTypes = ['Outdoor Play', 'Building blocks', 'Action figures',
+    'Games and puzzles', 'Arts and crafts', 'Moving toys', 'STEM toys', 'Books'];
+    let filteredToyType = [];
+    toyTypes.forEach((toy)=>{
+      console.log(toy);
+      if (filters[toy] === true) filteredToyType.push(toy);
+    });
+    console.log(filteredToyType);
+    let toy1;
+    if (!filteredToyType.length){
+      toy1 = unfilteredToys;
+    } else{
+      // toy1 = unfilteredToys.filter(toy => filteredToyType.includes(toy.toyType));
+      toy1 = unfilteredToys.filter((toy) => {
+        console.log(toy.toyType);
+        return filteredToyType.includes(toy.toyType);
+      });
+    }
+
+    let toys = toy1.filter(toy => toy.rental_rate <= filters.price);
     const components = {
-      'ListingsIndexContainer': <ListingsIndexContainer props = {this.props.toys}/>,
-      'MapSearchContainer': <MapSearchContainer props = {this.props.toys}/>
+      'ListingsIndexContainer': <ListingsIndexContainer props = {toys}/>,
+      'MapSearchContainer': <MapSearchContainer props = {toys}/>
     };
     const chosenComponent = this.state.component;
     return (
@@ -192,28 +213,28 @@ class Filter extends React.Component {
                 <input
                   className='checkbox'
                   type='checkbox'
-                  onClick={this.togglePriceFilter(25)}
-                  checked={filters['price'] === 25}
+                  onClick={this.togglePriceFilter(5)}
+                  checked={filters['price'] === 5}
                   />
-                  <label>Under $25</label>
+                  <label>Under $5</label>
               </li>
               <li className='filter-item'>
                 <input
                   className='checkbox'
                   type='checkbox'
-                  onClick={this.togglePriceFilter(50)}
-                  checked={filters['price'] === 50}
+                  onClick={this.togglePriceFilter(10)}
+                  checked={filters['price'] === 10}
                   />
-                  <label>Under $50</label>
+                <label>Under $10</label>
               </li>
               <li className='filter-item'>
                 <input
                   className='checkbox'
                   type='checkbox'
-                  onClick={this.togglePriceFilter(75)}
-                  checked={filters['price'] === 75}
+                  onClick={this.togglePriceFilter(20)}
+                  checked={filters['price'] === 20}
                   />
-                  <label>Under $75</label>
+                <label>Under $20</label>
               </li>
             </ul>
 

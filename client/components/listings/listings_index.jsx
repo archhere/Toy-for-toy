@@ -4,7 +4,8 @@ import FilterContainer from '../filter/filter_container';
 class ListingsIndex extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.requestAllToys();
+
+    // this.props.requestAllToys();
     // navigator.geolocation.getCurrentPosition(
     //   pos => {
     //     this.setState({ pos: pos });
@@ -25,6 +26,7 @@ class ListingsIndex extends React.Component {
 
   componentWillUnmount() {
     // this.props.clearSearchListings();
+    
     this.props.clearFilters();
   }
 
@@ -55,8 +57,9 @@ class ListingsIndex extends React.Component {
   }
 
   renderListingItem() {
-    const { listings, listingPhotos, searchedListings } = this.props;
-    let currentListings = listings;
+    // let list = this.props.listings;
+    // let listings = list.filter(listing => listing.rental_rate <= this.props.filters.price);
+    let currentListings = this.props.listings;
 
     // if (this.props.searchListings.length > 0 ){
     //   currentListings = this.props.searchListings;
@@ -81,7 +84,7 @@ class ListingsIndex extends React.Component {
 }
 
   render() {
-    // const { listingPhotos } = this.props;
+
     return (
 
         <section className="listing-index" key={Math.random()}>
