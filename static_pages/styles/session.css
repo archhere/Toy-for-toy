@@ -613,11 +613,31 @@ button:focus {outline:0;}
   /* grid-template-columns: 50% 50%; */
   margin-bottom:  120px;
   display: grid;
-  grid-template-columns: 150px 150px 150px;
+  grid-template-columns: 150px 150px 150px 150px;
   grid-template-rows: 250px 250px;
   grid-gap: 7rem;
 
 }
+
+
+/* @media (min-width: 1400px) {
+  .listing-index {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .listing-index {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  .listing-index {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
 
 .discover-container {
   display: flex;
