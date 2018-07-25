@@ -249,6 +249,7 @@ input:focus {outline:0;}
   font-size: 20px;
   font-family: serif;
   font-weight: bold;
+  cursor: pointer;
 }
 
 button:focus {outline:0;}
@@ -263,6 +264,7 @@ button:focus {outline:0;}
   font-size: 20px;
   font-family: serif;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .tag-line{
@@ -438,7 +440,7 @@ button:focus {outline:0;}
 
     .search-container{
       background: url(""),
-      url("https://www.fisher-price.com/en_AU/Images/ageBanner_3y_tcm175-243657.jpg");
+      url("https://res.cloudinary.com/archhere/image/upload/v1532538217/toy-for-toy/ageBanner_3y_tcm175-243657.jpg");
       background-repeat: no-repeat;
       background-position:center;
       /* background-color: #FFD944; */
