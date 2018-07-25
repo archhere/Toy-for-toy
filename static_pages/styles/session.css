@@ -696,9 +696,9 @@ li{
   margin-bottom: 10px;
   margin-right: 20px;
   position: relative;
-  background: #FE422D;
+  border: 1px solid #FE422D;
   padding: 5px;
-  color:  white;
+  color:  #FE422D;
   /* padding-left: 5px; */
 }
 .hamburger {
@@ -728,4 +728,41 @@ li{
 
 .filters-container{
   padding-right: 60px;
+}
+
+.mapouterborder{
+
+}
+
+.mapimage{
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  opacity: 0.5;
+  background: lightgray;
+}
+
+#descprent{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+#toydescp{
+  background: #F22649;
+  font-family: serif;
+  color:  #FFFAEA;
+  font-size: 18px;
+  padding: 5px;
+}
+
+#rentaldescp{
+  background: #F22649;
+  font-family: serif;
+  color:  #FFFAEA;
+  font-size: 18px;
+  padding: 5px;
 }

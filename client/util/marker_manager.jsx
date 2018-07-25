@@ -41,7 +41,7 @@ export default class MarkerManager {
   toys
     .filter(toy => !this.markers[toy._id])
     .forEach(newToy =>
-      this.createMarker(newToy));
+      this.createMarker(newToy,newToy.img_url));
 
   let filter1 = Object.keys(this.markers);
   let filter2 = filter1.filter(toyId => !toyObj[toyId]);
@@ -53,15 +53,21 @@ export default class MarkerManager {
 
   }
 
-  createMarker(toy) {
+  createMarker(toy,image) {
     console.log("markermanagertoy",toy);
-    let contentString = '<div >' +
-      `${toy.description}` + ' available at ' + `${toy.line1}`;
-      '</div >';
+    console.log(image);
+    // let contentString = '<div >' +
+    //   `${toy.description}` + ' available at ' + `${toy.line1}`;
+    //   '</div >';
 
-      // let contentString = '<div >' +
-      //   `${toy.description}` + ' available at ' + `${toy.line1}` + <img src = {toy.img_url} ;
-      //   '</div >';
+      let contentString = '<div className="mapouterborder">' + '<div>' +
+        `<img className="mapimage" src=${image}>` + '</img>' +
+        '<div id="descprent">' +
+        '<div id="toydescp">' + `${toy.description}`+'</div >' +
+        '<div id="rentaldescp">' + '$'+`${toy.rental_rate}`+' per day' + '</div >' +
+        '</div >' + '</div>' + '</div >';
+
+      // let contentString = "<div><img src='image'></img></div>";
 
     let infoWindow = new window.google.maps.InfoWindow({
       content: contentString
@@ -103,36 +109,36 @@ export default class MarkerManager {
     });
   }
 
-  addMarkerWithTimeout(position, timeout, toy) {
-    window.setTimeout( () => {
-
-      let contentString = '<div >' +
-        `${toy.name}` +
-        '</div >';
-
-      let infoWindow = new window.google.maps.InfoWindow({
-        content: contentString
-      });
-
-      this.infoWindows.push(infoWindow);
-
-      let marker = new window.google.maps.Marker({
-        position: position,
-        map: this.map,
-        toyId: toy.id,
-        icon: 'https://res.cloudinary.com/mwojick/image/upload/v1528938958/marker-32.ico',
-        animation: window.google.maps.Animation.DROP
-      });
-
-      marker.addListener('click', () => {
-        infoWindow.open(this.map, marker);
-      });
-
-      this.markers[toy.id] = marker;
-
-
-    }, timeout);
-  }
+  // addMarkerWithTimeout(position, timeout, toy) {
+  //   window.setTimeout( () => {
+  //
+  //     let contentString = '<div >' +
+  //       `${toy.name}` +
+  //       '</div >';
+  //
+  //     let infoWindow = new window.google.maps.InfoWindow({
+  //       content: contentString
+  //     });
+  //
+  //     this.infoWindows.push(infoWindow);
+  //
+  //     let marker = new window.google.maps.Marker({
+  //       position: position,
+  //       map: this.map,
+  //       toyId: toy.id,
+  //       icon: 'https://res.cloudinary.com/mwojick/image/upload/v1528938958/marker-32.ico',
+  //       animation: window.google.maps.Animation.DROP
+  //     });
+  //
+  //     marker.addListener('click', () => {
+  //       infoWindow.open(this.map, marker);
+  //     });
+  //
+  //     this.markers[toy.id] = marker;
+  //
+  //
+  //   }, timeout);
+  // }
 
   clearMarkers() {
     let keys = Object.keys(this.markers);

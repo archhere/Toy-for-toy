@@ -4,11 +4,15 @@ import { requestAllToys, fetchToysByGPS, fetchToysByZip } from '../../actions/to
 import { withRouter } from 'react-router';
 import { clearFilters } from '../../actions/filter_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  listings: Object.values(state.toys),
-  // searchListings: Object.values(state.searchedListings),
-  filters: state.filters
-});
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.filters);
+  return {
+    listings: Object.values(state.toys),
+    // searchListings: Object.values(state.searchedListings),
+    filters: state.filters
+  };
+
+};
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllToys: () => dispatch(requestAllToys()),

@@ -91,7 +91,7 @@ class Filter extends React.Component {
 
             <div className="hamburgerouter1" onClick={this.handleclick("map")}>
 
-            <img className="mapmarker" src="https://res.cloudinary.com/archhere/image/upload/v1532453883/SnazzyMaps-Icon-Transparent-White.png">
+            <img className="mapmarker" src="https://res.cloudinary.com/archhere/image/upload/v1532452642/Map-Marker-PNG-Picture.png">
             </img>
               Map
 
