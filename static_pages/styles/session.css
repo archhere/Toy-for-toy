@@ -423,9 +423,11 @@ button:focus {outline:0;}
 
 .home-container1 {
   display: flex;
-  margin-top: 98px;
+  /* margin-top: 98px; */
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+
 }
 
   .search-container h2 {
@@ -434,18 +436,31 @@ button:focus {outline:0;}
       font-weight: 600;
     }
 
+    .search-container{
+      background: url(""),
+      url("https://www.fisher-price.com/en_AU/Images/ageBanner_3y_tcm175-243657.jpg");
+      background-repeat: no-repeat;
+      background-position:center;
+      /* background-color: #FFD944; */
+      background-size: 55px, auto;
+      width: 100%;
+      /* text-align: right; */
+      padding: 70px;
+    }
+
   img {
     /* width: 100%; */
   }
 
 
-.or-text {
+#or-text {
   text-decoration: none;
-  text-align: center;
-  /* padding-top: 30px; */
+  text-align: left;
+  color:  #FFFAEA;
   padding-right: 5px;
   font-size: 15px;
-  color: #767676;
+  color:  #FFFAEA;
+
 ;
   transition: all 0.5s;
   cursor: pointer;
@@ -453,19 +468,20 @@ button:focus {outline:0;}
 
 .or-text:hover {
   text-decoration: underline;
+
 }
 
 .sub-search {
   display: flex;
-  justify-content: center;
-  padding-right: 60px;
-
+  background: #F22649;
+  width: 10vw;
+  padding: 10px;
+  color:  #FFFAEA;
+  margin-left: 10px;
+  border-radius: 8px;
 }
-
-.sub-search span {
-  padding-top: 24px;
-  font-size: 24px;
-  font-weight: 700;
+.searchinner123{
+  margin-left: 10px;
 }
 
 .home-categories {

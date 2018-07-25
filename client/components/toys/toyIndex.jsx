@@ -20,18 +20,22 @@ class ToyIndex extends React.Component {
       <div className="home-container1">
 
             <div className="search-container">
+              <div className="searchinner123">
               <h2>Tired of buying new toys all the time?</h2>
               <p className="home-text">Rent toys at a budget or rent your unused toys and make money</p>
-              <div className="sub-search">
-                <Link className="or-text" to="/discover">Click here to search!</Link>
-
-
               </div>
+              <div className="sub-search">
+                <Link id="or-text" to="/discover">Click here to search!</Link>
+              </div>
+
+
+
+
 
         </div>
 
         <div className="home-categories">
-          <h2 className="browse-toys">Browse toys...</h2>
+          <h2 className="browse-toys">If you are looking for a specific type of toy, click one of the below toy types...</h2>
 
           <div className="category-wrapper">
           <div className="category-grid">
@@ -92,7 +96,7 @@ class ToyIndex extends React.Component {
             </div>
 
             <div className="category-holder">
-              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411595/HTB17cuiJFXXXXb5XpXXq6xXFXXXk.jpg" onClick={this.handleCategory('STEM toys')}></img>
+              <img className="home-category" src="https://res.cloudinary.com/archhere/image/upload/c_scale,h_243,w_243/v1532411595/HTB17cuiJFXXXXb5XpXXq6xXFXXXk.jpg" onClick={this.handleCategory('Books')}></img>
               <div className="home-text-container">
                 <p className="home-category-title" onClick={this.handleCategory('Books')}>Books</p>
                 <p className="options-near-me">Kids books near me</p>
