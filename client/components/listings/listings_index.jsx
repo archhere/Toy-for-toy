@@ -65,11 +65,11 @@ class ListingsIndex extends React.Component {
     // currentListings = this.applyFilters(currentListings);
 
     return currentListings.map( listing =>
-      <div className="category-wrapper">
+      <div className="category-wrapper1">
       <div className="category-grid">
         <div className="category-holder1">
           <img className="home-category1" src={listing.img_url}></img>
-          <div className="home-text-container">
+          <div className="home-text-container1">
             <p className="home-category-title" className="home-category-title">{listing.description}</p>
             <p className="options-near-me">Click to reserve</p>
           </div>
@@ -87,7 +87,7 @@ class ListingsIndex extends React.Component {
         <section className="listing-index" key={Math.random()}>
           {this.renderListingItem()}
         </section>
-      
+
     );
   }
 }
