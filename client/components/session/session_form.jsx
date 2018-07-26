@@ -143,13 +143,13 @@ class SessionForm extends React.Component {
     if (this.props.formType === "Signup"){
       welcomeText = "Hello new user";
     } else {
-      welcomeText = "Welcome Back"
+      welcomeText = "Welcome Back";
     }
     return (
 
       <div className="auth-form">
         <form className="login-form-box" onSubmit={this.handleSubmit} >
-          
+
           <br/>
           <span className="welcome">{welcomeText}</span>
           <br/>

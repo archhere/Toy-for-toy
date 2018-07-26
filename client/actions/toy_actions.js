@@ -1,8 +1,8 @@
 import * as ToyAPIUtil from '../util/toy_util.js';
 export const RECEIVE_ALL_TOYS = 'RECEIVE_ALL_TOYS';
-export const RECEIVE_TOYS = 'RECEIVE_TOYS';
 export const RECEIVE_ONE_TOY = 'RECEIVE_ONE_TOY';
 export const REMOVE_TOY = 'REMOVE_TOY';
+// export const RECEIVE_TOYS = 'RECEIVE_TOYS';
 
 export const requestOneToy = id => dispatch => {
   return ToyAPIUtil.fetchOneToy(id).then(response =>
@@ -38,20 +38,20 @@ export const removeToy = id => dispatch => {
   .then(res => dispatch({type: REMOVE_TOY, id: id}));
 };
 
-export const fetchToysByGPS = (gps) => dispatch => {
-  return ToyAPIUtil.fetchToysByGPS(gps).then(response =>
-    dispatch({ type: RECEIVE_TOYS, payload: response })
-  );
-};
-
-export const fetchToysByZip = (zip) => dispatch => {
-  return ToyAPIUtil.fetchToysByZip(zip).then(response =>
-    dispatch({ type: RECEIVE_TOYS, payload: response })
-  );
-};
-
-export const fetchToysByCity = (city) => dispatch => {
-  return ToyAPIUtil.fetchToysByCity(city).then(response =>
-    dispatch({ type: RECEIVE_TOYS, payload: response })
-  );
-};
+// export const fetchToysByGPS = (gps) => dispatch => {
+//   return ToyAPIUtil.fetchToysByGPS(gps).then(response =>
+//     dispatch({ type: RECEIVE_TOYS, payload: response })
+//   );
+// };
+//
+// export const fetchToysByZip = (zip) => dispatch => {
+//   return ToyAPIUtil.fetchToysByZip(zip).then(response =>
+//     dispatch({ type: RECEIVE_TOYS, payload: response })
+//   );
+// };
+//
+// export const fetchToysByCity = (city) => dispatch => {
+//   return ToyAPIUtil.fetchToysByCity(city).then(response =>
+//     dispatch({ type: RECEIVE_TOYS, payload: response })
+//   );
+// };

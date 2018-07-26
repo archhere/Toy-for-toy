@@ -339,6 +339,9 @@ button:focus {outline:0;}
 
 
 .login-input{
+  /* width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px; */
   width: 100%;
 }
 .welcome{

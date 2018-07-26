@@ -6,34 +6,16 @@ class ListingsIndex extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-
-
-    // navigator.geolocation.getCurrentPosition(
-    //   pos => {
-    //     this.setState({ pos: pos });
-    //     this.props.fetchSpotsByGPS({
-    //       latitude: pos.coords.latitude,
-    //       longitude: pos.coords.longitude,
-    //       range: this.state.range
-    //     });
-    //   },
-    //   () => {
-    //     this.props.fetchToysByZip({
-    //       zip: this.state.zip,
-    //       range: this.state.range
-    //     });
-    //   }
-    // );
   }
 
 
 
-  componentWillReceiveProps(nextProps){
-    // if(this.props !== nextProps){
-    //   this.state.filters
-    // }
-    console.log(nextProps);
-  }
+  // componentWillReceiveProps(nextProps){
+  //   // if(this.props !== nextProps){
+  //   //   this.state.filters
+  //   // }
+  //   console.log(nextProps);
+  // }
 
   applyFilters(listings) {
     const { filters } = this.props;
@@ -72,7 +54,7 @@ class ListingsIndex extends React.Component {
           <img className="home-category1" src={listing.img_url}></img>
           <div className="home-text-container1">
             <p className="home-category-title" className="home-category-title">{listing.description}</p>
-            <p className="options-near-me">Click to reserve</p>
+            <p className="options-near-me" onClick={() => this.props.openModal({modal: 'createLease'})}>Click to reserve</p>
           </div>
         </div>
       </div>

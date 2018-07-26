@@ -22,7 +22,7 @@ const toyReducer = (state = {}, action) => {
         newtoys.forEach((newtoy) => {
           newhash_toys[newtoy._id] = newtoy;
         });
-        return newhash_toys;  
+        return newhash_toys;
     case REMOVE_TOY:
       newState = merge({}, state);
       delete newState[action.id];

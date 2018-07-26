@@ -53,14 +53,21 @@ class Filter extends React.Component {
           longitude: position.coords.longitude});
       }
     );
-    console.log(this.state.latitude);
+
   }
 
   componentWillReceiveProps(nextProps){
     console.log("thistoys",this.props.toys);
     console.log("nextprops",nextProps.toys);
-    if (this.props.toys.length !== nextProps.toys.length) this.props.fetchToys();
+    if (this.props.toys !== nextProps.toys) this.props.fetchToys();
   }
+
+  // componentDidUpdate(){
+  //   console.log("called");
+  //   this.props.fetchToys();
+  // }
+
+
 
   toggleBoolean(field) {
     const { filters, receiveFilter, removeFilter } = this.props;
@@ -109,7 +116,6 @@ class Filter extends React.Component {
     'Games and puzzles', 'Arts and crafts', 'Moving toys', 'STEM toys', 'Books'];
     let filteredToyType = [];
     toyTypes.forEach((toy)=>{
-      console.log(toy);
       if (filters[toy] === true) filteredToyType.push(toy);
     });
 
@@ -119,7 +125,6 @@ class Filter extends React.Component {
     } else{
       // toy1 = unfilteredToys.filter(toy => filteredToyType.includes(toy.toyType));
       toy1 = unfilteredToys.filter((toy) => {
-        console.log(toy.toyType);
         return filteredToyType.includes(toy.toyType);
       });
     }
