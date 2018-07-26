@@ -21,22 +21,27 @@ const Modal = (props) => {
     component = <SignUpFormContainer />;
     break;
     case 'createLease':
-    component = <CreateLeaseContainer />;
+    component = <CreateLeaseContainer toy={props.modal.modal.toy}/>;
     break;
     default:
     return null;
   }
 
   let modalStyle;
-  if(props.modal === 'createLease' || props.modal === 'CreateBoard'){
+  if(props.modal.modal.modal === 'createLease' || props.modal === 'CreateBoard'){
     modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
   } else {
     modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
   }
-  
+
+  let newClass="modal-child";
+  if (props.modal.modal.modal === 'createLease') {
+    newClass="modal-child1";
+  }
+
   return (
       <div className="modal-background" onClick={closeModal} style={modalStyle}>
-        <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <div className={newClass} onClick={e => e.stopPropagation()}>
           { component }
         </div>
       </div>

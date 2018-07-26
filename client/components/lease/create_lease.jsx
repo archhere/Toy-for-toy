@@ -8,26 +8,92 @@ class CreateMyLease extends React.Component {
     this.state = {
       start_date: '',
       end_date: '',
-      rental_status: '',
-      toy_id: this.props.match.params.toyId,
+      rental_status: 'accepted',
+      toy_id: this.props.currentToy._id,
       renter_id: this.props.currentUser._id,
-      owner_id: ''
+      owner_id: this.props.currentToy.ownerId,
     };
-    
-
   }
 
-  ComponentDidMount(){
-    this.props.requestOneToy(this.props.match.params.toyId);
+  componentWillUnmount(){
+    this.props.clearErrors();
   }
 
-  render(){
-    return (
-      <div>
-        "Great"
-      </div>
-    );
+
+
+  handleChange(field) {
+    return (e) => this.setState({ [field]: e.target.value });
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createLease(this.state)
+        .then(() => this.props.closeModal());
+    }
+
+  renderSubmitButton() {
+
+    }
+
+
+    render() {
+      const { minDate, currentToy } = this.props;
+      if (currentToy == null) return null;
+      const divStyle = {
+        width: '80%',
+        'align-self': 'center'
+      };
+
+      return (
+        <aside className="booking-form-container">
+          <div className="thesetwo123">
+          <span>{this.props.currentToy.description}</span>
+          <span id="close-modal" onClick={() => this.props.closeModal()}>X</span>
+          </div>
+          <div className="booking-description">
+
+            <h3>${currentToy.rental_rate}</h3>
+            <p>per day</p>
+          </div>
+          <form onSubmit={(e) => this.handleSubmit(e)} >
+            <div className="booking-input-container">
+              <div className="booking-check">
+                <h5>Reserve from</h5>
+                <input
+                  type="date"
+                  min={minDate}
+                  max={this.state.end_date}
+                  value={this.state.start_date}
+                  onChange={this.handleChange("start_date")}
+                  className="start_date_input"
+                  required
+                />
+              </div>
+
+              <div className="booking-check">
+                <h5>Reserve to</h5>
+                <input
+                  type="date"
+                  min={this.state.start_date}
+                  value={this.state.end_date}
+                  onChange={this.handleChange("end_date")}
+                  className="start_date_input"
+                  required
+                />
+              </div>
+            </div>
+
+            <input
+              type="submit"
+              className="direct-book-btn"
+              style={divStyle}
+              value='Reserve'
+            />
+          </form>
+
+          </aside>
+        );
+      }
 
 }
 

@@ -54,7 +54,7 @@ class ListingsIndex extends React.Component {
           <img className="home-category1" src={listing.img_url}></img>
           <div className="home-text-container1">
             <p className="home-category-title" className="home-category-title">{listing.description}</p>
-            <p className="options-near-me" onClick={() => this.props.openModal({modal: 'createLease'})}>Click to reserve</p>
+            <p className="options-near-me" onClick={() => this.props.openModal({modal: 'createLease',toy: listing})}>Click to reserve</p>
           </div>
         </div>
       </div>

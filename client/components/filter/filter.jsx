@@ -59,7 +59,7 @@ class Filter extends React.Component {
   componentWillReceiveProps(nextProps){
     console.log("thistoys",this.props.toys);
     console.log("nextprops",nextProps.toys);
-    if (this.props.toys !== nextProps.toys) this.props.fetchToys();
+    if (this.props.toys.length !== nextProps.toys.length) this.props.fetchToys();
   }
 
   // componentDidUpdate(){

@@ -10,8 +10,8 @@ const Toy = ToyObj.model;
 exports.addLease = function(req,res,next) {
   let x = Lease.findOne({ toy_id: req.params.toyId});
 
-
-// First check if the toy is already leased or if this is a new toy
+  console.log(req.body);
+  console.log(req.params.toyId);
 
   let currentLease = Lease.findOne({toy_id: req.params.toyId,}).then(lease => {
     overlappingRequests(req.body, req.params.toyId).then(result => {

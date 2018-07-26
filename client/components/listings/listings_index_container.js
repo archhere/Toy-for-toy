@@ -4,6 +4,7 @@ import { requestAllToys, fetchToysByGPS, fetchToysByZip } from '../../actions/to
 import { withRouter } from 'react-router';
 import { clearFilters } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
   requestAllToys: () => dispatch(requestAllToys()),
   fetchToysByZip: () => dispatch(fetchToysByZip()),
   clearFilters: () => dispatch(clearFilters()),
-  openModal: (modal) => dispatch(openModal(modal))
+  openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListingsIndex));

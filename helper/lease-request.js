@@ -11,10 +11,13 @@ module.exports = async function overlappingRequests(data,req_toy_id){
   console.log(end_date);
   var today = Date.parse(new Date());
   if (start_date > end_date){
+    console.log("start greater than end");
     return true;
   }else if (start_date < today ){
+    console.log('start date before today');
     return true;
   }
+
   return new Promise((res,rej)=>{
     Lease.find({toy_id: data.toy_id,rental_status:'accepted'})
     .then(lease=>{
