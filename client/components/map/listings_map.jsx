@@ -31,6 +31,7 @@ class ListingsMap extends React.Component {
     this.MarkerManager.updateMarkers(this.props.toys);
     // console.log(this.MarkerManager);
 
+
   }
 
   componentWillReceiveProps(nextProps){
@@ -40,10 +41,28 @@ class ListingsMap extends React.Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   console.log("called");
-  //   this.MarkerManager.updateMarkers(this.props.toys);
-  // }
+  componentDidUpdate() {
+    console.log("called");
+    this.MarkerManager.updateMarkers(this.props.toys);
+  }
+
+  applyFilters(listings) {
+    const { filters } = this.props;
+    let filteredListings = listings;
+
+    if (filters['Outdoor Play']) filteredListings = filteredListings.filter(listing => listing.category === "Outdoor Play");
+    if (filters['Building blocks']) filteredListings = filteredListings.filter(listing => listing.category === "Building blocks");
+    if (filters['Action figures']) filteredListings = filteredListings.filter(listing => listing.category === "Action figures");
+    if (filters['Games and puzzles']) filteredListings = filteredListings.filter(listing => listing.category === "Games and puzzles");
+    if (filters['Arts and crafts']) filteredListings = filteredListings.filter(listing => listing.category === "Arts and crafts");
+    if (filters['Moving toys']) filteredListings = filteredListings.filter(listing => listing.category === "Moving toys");
+    if (filters['STEM toys']) filteredListings = filteredListings.filter(listing => listing.category === "STEM toys");
+    if (filters['Books']) filteredListings = filteredListings.filter(listing => listing.category === "Books");
+
+
+    filteredListings = filteredListings.filter(listing => listing.price <= filters['price']);
+    return filteredListings;
+  }
 
   render() {
     return (

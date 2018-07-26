@@ -9,6 +9,9 @@ const mapStateToProps = (state,ownProps) => {
   console.log(ownProps);
   return {
     toys: ownProps.props,
+    Alltoys: Object.values(state.toys),
+    filters: state.filters,
+    listings: ownProps.props
   };
 };
 
