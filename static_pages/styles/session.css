@@ -595,9 +595,15 @@ button:focus {outline:0;}
 .home-text-container1 {
   /* display: flex;
   flex-direction: column; */
-  background: #FA1943;
+  background: #00873F;
   text-align: center;
   /* padding: 15px; */
+  border: 1px solid #ebebeb;
+}
+
+.home-text-container2{
+  background: #FA1943;
+  text-align: center;
   border: 1px solid #ebebeb;
 }
 
@@ -611,6 +617,15 @@ button:focus {outline:0;}
   color:  #FFFAEA;
   cursor: pointer;
 }
+
+.options-near-me1 {
+  font-size: 15px;
+  font-weight: 300;
+  color:  #FFFAEA;
+  cursor: pointer;
+}
+
+
 
 
 
