@@ -16,7 +16,8 @@ exports.addLease = function(req,res,next) {
   let currentLease = Lease.findOne({toy_id: req.params.toyId,}).then(lease => {
     overlappingRequests(req.body, req.params.toyId).then(result => {
     if (result) {
-      res.json({ msg: 'overlapping dates. Sorry'});
+      // res.json({ msg: 'overlapping dates. Sorry'});
+      res.status(422).send({ error: 'overlapping dates.Try some other dates' });
     } else {
 
       let start_date =  req.body.start_date;

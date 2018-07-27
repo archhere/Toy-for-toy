@@ -13,10 +13,10 @@ export const createLease = (lease) => {
 };
 
 
-export const fetchAllLease = (toy) => {
+export const fetchAllLease = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `api/toys/${toy._id}/lease`,
+    url: `api/toys/${id}/lease`,
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
     headers: { "Authorization": token },
@@ -71,5 +71,22 @@ export function errorHandler(dispatch, error, type) {
     errorMessage = error.statusText;
   } else {
     errorMessage = "Unsuccessful. Try again";
+  }
+
+  if (error.status === 401) {
+    dispatch({
+      type: type,
+      payload: 'This username and password combination is not correct.'
+    });
+  } else if (error.status === 400) {
+    dispatch({
+      type: type,
+      payload: 'Please enter valid username and password.'
+    });
+  }else {
+    dispatch({
+      type: type,
+      payload: JSON.parse(errorMessage)
+    });
   }
 }

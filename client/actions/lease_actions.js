@@ -20,8 +20,8 @@ export const requestOneLease = (toyId,leaseId) => dispatch => {
     });
 };
 
-export const requestAllLease = (toy) => dispatch => {
-  return LeaseAPIUtil.fetchAllLease(toy).then(response => {
+export const requestAllLease = (toyId) => dispatch => {
+  return LeaseAPIUtil.fetchAllLease(toyId).then(response => {
     dispatch({ type: RECEIVE_ALL_LEASE, payload: response });
   },(error) => {
       LeaseAPIUtil.errorHandler(dispatch,error,RECEIVE_LEASE_ERRORS);

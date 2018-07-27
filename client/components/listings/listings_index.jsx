@@ -8,12 +8,28 @@ class ListingsIndex extends React.Component {
     window.scrollTo(0, 0);
   }
 
-
-
+  // componentDidMount(){
+  //   if(this.props.listings.length>0){
+  //     for(let i=0; i<this.props.listings.length; i++){
+  //       console.log(this.props.listings);
+  //       console.log(this.props.listings[i]);
+  //       console.log(this.props.listings[i]._id);
+  //       this.props.requestAllLease(this.props.listings[i]._id);
+  //     }
+  //   }
+  //
+  //
+  // }
+  //
   // componentWillReceiveProps(nextProps){
-  //   // if(this.props !== nextProps){
-  //   //   this.state.filters
-  //   // }
+  //   if(!this.props.lease.length){
+  //     for(let i=0; i<this.props.listings.length; i++){
+  //       console.log(this.props.listings);
+  //       console.log(this.props.listings[i]);
+  //       console.log(this.props.listings[i]._id);
+  //       this.props.requestAllLease(this.props.listings[i]._id);
+  //     }
+  //   }
   //   console.log(nextProps);
   // }
 

@@ -13,12 +13,31 @@ class CreateMyLease extends React.Component {
       renter_id: this.props.currentUser._id,
       owner_id: this.props.currentToy.ownerId,
     };
+
   }
 
   componentWillUnmount(){
     this.props.clearErrors();
   }
 
+  componentDidMount(){
+    this.props.requestAllLease(this.props.currentToy._id);
+  }
+
+  // renderErrors() {
+  //   let slice;
+  //   console.log("errors",this.props.errors);
+  //   if (this.props.formType === "Signup") {
+  //     if (this.props.errors) {
+  //       slice = this.props.errors.slice(10, this.props.errors.length - 2);
+  //     }
+  //   } else {
+  //     slice = this.props.errors;
+  //   }
+  //   return(
+  //     <div className="errors">{slice}</div>
+  //   );
+  // }
 
 
   handleChange(field) {
@@ -35,26 +54,32 @@ class CreateMyLease extends React.Component {
 
     }
 
+    handleClose(){
+      return () => this.props.closeModal();
+    }
+
 
     render() {
-      const { minDate, currentToy } = this.props;
+      const { minDate, maxDate, currentToy } = this.props;
       if (currentToy == null) return null;
       const divStyle = {
         width: '80%',
         'align-self': 'center'
       };
 
+      // let endDate = ending.toJSON().slice(0, 10);
       return (
         <aside className="booking-form-container">
           <div className="thesetwo123">
           <span>{this.props.currentToy.description}</span>
-          <span id="close-modal" onClick={() => this.props.closeModal()}>X</span>
+          <span id="close-modal" onClick={this.handleClose()}>X</span>
           </div>
           <div className="booking-description">
 
             <h3>${currentToy.rental_rate}</h3>
             <p>per day</p>
           </div>
+
           <form onSubmit={(e) => this.handleSubmit(e)} >
             <div className="booking-input-container">
               <div className="booking-check">
@@ -75,6 +100,7 @@ class CreateMyLease extends React.Component {
                 <input
                   type="date"
                   min={this.state.start_date}
+                  max={maxDate}
                   value={this.state.end_date}
                   onChange={this.handleChange("end_date")}
                   className="start_date_input"

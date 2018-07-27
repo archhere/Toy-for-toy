@@ -5,14 +5,17 @@ import { withRouter } from 'react-router';
 import { clearFilters } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
 import { closeModal } from '../../actions/modal_actions';
+import { requestAllLease } from '../../actions/lease_actions';
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
+  console.log(state.lease);
   return {
     // listings: Object.values(state.toys),
     // searchListings: Object.values(state.searchedListings),
     filters: state.filters,
-    listings: ownProps.props
+    listings: ownProps.props,
+    lease: Object.values(state.lease),
   };
 
 };
