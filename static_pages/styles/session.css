@@ -556,6 +556,14 @@ button:focus {outline:0;}
   margin-bottom: 30px;
 }
 
+.category-wrapper45{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .category-wrapper1 {
   /* display: flex; */
   justify-content: center;
@@ -622,7 +630,7 @@ button:focus {outline:0;}
   font-size: 15px;
   font-weight: 300;
   color:  #FFFAEA;
-  
+
 }
 
 
@@ -927,4 +935,28 @@ img {
 #book123{
 
   align-self: center;
+}
+
+/* -------------------------------------------------------------------------------  */
+ /* Lease show css */
+/* ------------------------------------------------------------------------------- */
+
+.outerDiv789{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome123{
+  /* text-align: center; */
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-family: serif;
+  font-size: 32px;
+  color: #FA1943;
+  font-weight: 600;
+}
+
+.outer999{
+  padding-left: 30px;
 }
