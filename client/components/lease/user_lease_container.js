@@ -4,14 +4,22 @@ import { withRouter } from 'react-router-dom';
 import UserLease from './user_lease';
 import { requestAllToysLease } from '../../actions/lease_actions';
 import { requestAllToys } from '../../actions/toy_actions';
+import cookie from 'react-cookies';
 
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
   console.log(state.lease);
+  let token = cookie.load('token');
+  let currentUser;
+  if (token) {
+    let actualToken = token.split('.')[1];
+    let userInfo = actualToken.replace('-', '+').replace('_', '/');
+    currentUser = JSON.parse(window.atob(userInfo));
+  }
   return {
     lease: Object.values(state.lease),
-    currentUser: state.user.profile.user,
+    currentUser: currentUser,
     toys: Object.values(state.toys),
   };
 

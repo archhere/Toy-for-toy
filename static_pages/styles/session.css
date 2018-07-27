@@ -480,6 +480,18 @@ button:focus {outline:0;}
       padding: 70px;
     }
 
+
+
+    .search-container1{
+      background: url(""),
+      url("https://res.cloudinary.com/archhere/image/upload/v1532713549/toy-for-toy/backgroundforanotherpage.png");
+      background-repeat: no-repeat;
+      background-position:center;
+      /* background-color: #FFD944; */
+      background-size: 55px, auto;
+      /* text-align: right; */
+      padding: 70px;
+    }
   img {
     /* width: 100%; */
   }
@@ -697,6 +709,21 @@ button:focus {outline:0;}
   grid-gap: 7rem;
 
 }
+
+.listing-index55 {
+  height: min-content;
+  width: 720px;
+  height:750px;
+  line-height: 1.42;
+  color: #333333;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px;
+  grid-template-rows: 250px 250px;
+  grid-gap: 7rem;
+
+}
+
 
 
 /* @media (min-width: 1400px) {
@@ -959,11 +986,24 @@ img {
   padding-top: 40px;
   padding-bottom: 20px;
   font-family: serif;
-  font-size: 32px;
+  font-size: 20px;
   color: #FA1943;
   font-weight: 600;
 }
 
 .outer999{
   padding-left: 30px;
+}
+
+.addtoy{
+  background: #E83650;
+  text-align: center;
+  color: #FFF8E1;
+  cursor: pointer;
+  padding-left: 10px;
+  background: #E83650;
+  width: 100%;
+  align-self: center;
+  margin-left: 30px;
+
 }
