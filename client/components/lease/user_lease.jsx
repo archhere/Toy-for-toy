@@ -60,7 +60,7 @@ class UserLease extends React.Component {
               </div>
 
             )}
-            <p className="addtoy">Add another toy</p>
+
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ class UserLease extends React.Component {
           <p className="home-text">Take a look at your rentals and reservations</p>
           </div>
           <div className="sub-search">
-            <Link id="or-text" to="/discover">Rent out your toy!</Link>
+            <Link id="or-text" to="/createToy">Rent out your toy!</Link>
           </div>
 
 
@@ -120,7 +120,7 @@ class UserLease extends React.Component {
         <p className="home-text">Take a look at your rentals and reservations</p>
         </div>
         <div className="sub-search">
-          <Link id="or-text" to="/discover">Rent out your toy!</Link>
+          <Link id="or-text" to="/createToy">Rent out your toy!</Link>
         </div>
 
 

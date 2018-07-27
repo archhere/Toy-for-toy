@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import CreateToy from './createToy';
 import { withRouter } from 'react-router-dom';
-import UserLease from './user_lease';
-import { requestAllToysLease } from '../../actions/lease_actions';
-import { requestAllToys } from '../../actions/toy_actions';
+import { createToy} from '../../actions/toy_actions';
 import cookie from 'react-cookies';
-import { openModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
@@ -18,18 +17,15 @@ const mapStateToProps = (state, ownProps) => {
     currentUser = JSON.parse(window.atob(userInfo));
   }
   return {
-    lease: Object.values(state.lease),
     currentUser: currentUser,
-    toys: Object.values(state.toys),
   };
 
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  requestAllToysLease: () => dispatch(requestAllToysLease()),
-  requestAllToys: () => dispatch(requestAllToys()),
-  openModal: (modal) => dispatch(openModal(modal)),
+  createToy: (toy) => dispatch(createToy(toy)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default withRouter(connect(mapStateToProps,
-  mapDispatchToProps)(UserLease));
+  mapDispatchToProps)(CreateToy));

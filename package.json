@@ -49,12 +49,15 @@
     "react-cookie": "^2.2.0",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.4.1",
+    "react-dropzone": "^4.2.13",
+    "react-geocode": "^0.1.2",
     "react-geolocated": "^2.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "superagent": "^3.8.3",
     "webpack": "^4.16.1"
   },
   "devDependencies": {

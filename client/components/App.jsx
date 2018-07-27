@@ -12,6 +12,7 @@ import SliderContainer from './slider/slider_container';
 // import MapSearchContainer from './map/map_search_container';
 import FilterContainer from './filter/filter_container';
 import UserContainer from './lease/user_lease_container';
+import createToyContainer from './toys/createToy_container';
 import {
   Route,
   Redirect,
@@ -42,6 +43,7 @@ const App = () => {
 
       <Switch>
 
+        <ProtectedRoute path="/createToy" component={ createToyContainer } />
         <ProtectedRoute path="/discover" component={ FilterContainer } />
         <ProtectedRoute path="/user" component={ UserContainer } />
         <ProtectedRoute exact path="/" component={ToyIndexContainer} />

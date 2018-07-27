@@ -6,6 +6,8 @@ import SignUpFormContainer from
 '../../components/session/registerform_container';
 import CreateLeaseContainer from
 '../../components/lease/create_lease_container';
+import CreateToyContainer from
+'../../components/toys/createToy_container';
 
 const Modal = (props) => {
   if (!props.modal){
@@ -23,12 +25,15 @@ const Modal = (props) => {
     case 'createLease':
     component = <CreateLeaseContainer toy={props.modal.modal.toy}/>;
     break;
+    case 'createToy':
+    component = <CreateLeaseContainer />;
+    break;
     default:
     return null;
   }
 
   let modalStyle;
-  if(props.modal.modal.modal === 'createLease' || props.modal === 'CreateBoard'){
+  if(props.modal.modal.modal === 'createLease' || props.modal.modal.modal === 'createToy'){
     modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
   } else {
     modalStyle = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};

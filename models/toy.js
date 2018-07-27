@@ -52,7 +52,6 @@ const ToySchema = new Schema({
   },
   ageGroup: {
     type: [String],
-    required: true
   },
   toyType: {
     type: String,
