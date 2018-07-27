@@ -52,6 +52,7 @@ exports.addLease = function(req,res,next) {
       .save()
       .then(doc => res.json(doc))
       .catch(err => console.log(err));
+
     }
   });
   });
@@ -68,6 +69,16 @@ exports.getAllLease = function(req,res,next) {
   });
 };
 
+// --------------------------------------------------------------------
+// LEASE INDEX PAGE - details of every lease on a particular toy
+// --------------------------------------------------------------------
+
+exports.getAllToysLease = function(req,res,next) {
+  const query = Lease.find({});
+  query.exec(function(err,lease){
+    res.send(lease);
+  });
+};
 
 // --------------------------------------------------------------------
 // LEASE SHOW PAGE - details of a particular lease for a

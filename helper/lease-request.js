@@ -9,11 +9,16 @@ module.exports = async function overlappingRequests(data,req_toy_id){
   console.log(start_date);
   var end_date = Date.parse(data.end_date);
   console.log(end_date);
-  var today = Date.parse(new Date());
+  function addDays(theDate, days) {
+    return new Date(theDate.getTime() - days*24*60*60*1000);
+  }
+  let temp = addDays(new Date(), 1)
+  var today = Date.parse(temp);
   if (start_date > end_date){
     console.log("start greater than end");
     return true;
   }else if (start_date < today ){
+    console.log(today);
     console.log('start date before today');
     return true;
   }

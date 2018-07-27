@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { clearFilters } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
 import { closeModal } from '../../actions/modal_actions';
-import { requestAllLease } from '../../actions/lease_actions';
+import { requestAllToysLease } from '../../actions/lease_actions';
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state.filters);
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
   clearFilters: () => dispatch(clearFilters()),
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
+  requestAllToysLease: () => dispatch(requestAllToysLease()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListingsIndex));

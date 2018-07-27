@@ -23,6 +23,17 @@ export const fetchAllLease = (id) => {
   });
 };
 
+
+export const fetchAllToysLease = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/lease`,
+    dataType: 'html',
+    contentType: "application/json; charset=utf-8",
+    headers: { "Authorization": token },
+  });
+};
+
 export const fetchOneLease = (toyId,leaseId) => {
   return $.ajax({
     method: 'GET',

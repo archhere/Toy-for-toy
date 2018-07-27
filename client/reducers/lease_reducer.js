@@ -1,4 +1,4 @@
-import { RECEIVE_ONE_LEASE, RECEIVE_ALL_LEASE, REMOVE_LEASE, RECEIVE_LEASE_ERRORS } from '../actions/lease_actions';
+import { RECEIVE_ONE_LEASE, RECEIVE_ALL_LEASE, REMOVE_LEASE, RECEIVE_ALL_TOYS_LEASE, RECEIVE_LEASE_ERRORS } from '../actions/lease_actions';
 import merge from 'lodash/merge';
 
 const leaseReducer = (state = {}, action) => {
@@ -17,6 +17,14 @@ const leaseReducer = (state = {}, action) => {
         hash_lease[value._id] = value;
       });
       return hash_lease;
+    case RECEIVE_ALL_TOYS_LEASE:
+    console.log(action);
+      let allLease = JSON.parse(action.payload);
+      let hashLease = {};
+      allLease.forEach((value) => {
+      hashLease[value._id] = value;
+      });
+    return hashLease;
     case REMOVE_LEASE:
       newState = merge({}, state);
       delete newState[action.id];

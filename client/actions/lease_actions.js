@@ -1,5 +1,6 @@
 import * as LeaseAPIUtil from '../util/lease_util.js';
 export const RECEIVE_ALL_LEASE = 'RECEIVE_ALL_LEASE';
+export const RECEIVE_ALL_TOYS_LEASE = 'RECEIVE_ALL_TOYS_LEASE';
 export const RECEIVE_ONE_LEASE = 'RECEIVE_ONE_LEASE';
 export const REMOVE_LEASE = 'REMOVE_LEASE';
 export const RECEIVE_LEASE_ERRORS = "RECEIVE_LEASE_ERRORS";
@@ -26,6 +27,14 @@ export const requestAllLease = (toyId) => dispatch => {
   },(error) => {
       LeaseAPIUtil.errorHandler(dispatch,error,RECEIVE_LEASE_ERRORS);
     });
+};
+
+export const requestAllToysLease = () => dispatch => {
+  return LeaseAPIUtil.fetchAllToysLease().then(response => {
+    dispatch({ type: RECEIVE_ALL_TOYS_LEASE, payload: response});
+  },(error) => {
+    LeaseAPIUtil.errorHandler(dispatch,error,RECEIVE_ALL_TOYS_LEASE);
+  });
 };
 
 export const createLease = lease => dispatch => {

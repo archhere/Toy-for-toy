@@ -69,6 +69,7 @@ const ToySchema = new Schema({
   img_url: {
     type: String
   }
+
 });
 
 

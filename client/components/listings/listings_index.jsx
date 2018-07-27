@@ -6,32 +6,16 @@ class ListingsIndex extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.props.requestAllToysLease();
   }
 
-  // componentDidMount(){
-  //   if(this.props.listings.length>0){
-  //     for(let i=0; i<this.props.listings.length; i++){
-  //       console.log(this.props.listings);
-  //       console.log(this.props.listings[i]);
-  //       console.log(this.props.listings[i]._id);
-  //       this.props.requestAllLease(this.props.listings[i]._id);
-  //     }
-  //   }
-  //
-  //
-  // }
-  //
-  // componentWillReceiveProps(nextProps){
-  //   if(!this.props.lease.length){
-  //     for(let i=0; i<this.props.listings.length; i++){
-  //       console.log(this.props.listings);
-  //       console.log(this.props.listings[i]);
-  //       console.log(this.props.listings[i]._id);
-  //       this.props.requestAllLease(this.props.listings[i]._id);
-  //     }
-  //   }
-  //   console.log(nextProps);
-  // }
+
+  componentWillReceiveProps(nextProps){
+    if(!this.props.lease.length){
+      this.props.requestAllToysLease();
+    }
+    console.log(nextProps);
+  }
 
   applyFilters(listings) {
     const { filters } = this.props;
@@ -53,15 +37,9 @@ class ListingsIndex extends React.Component {
   }
 
   renderListingItem() {
-    // let list = this.props.listings;
-    // let listings = list.filter(listing => listing.rental_rate <= this.props.filters.price);
+
     let currentListings = this.props.listings;
 
-    // if (this.props.searchListings.length > 0 ){
-    //   currentListings = this.props.searchListings;
-    // }
-    //
-    // currentListings = this.applyFilters(currentListings);
 
     return currentListings.map( listing =>
       <div className="category-wrapper1">
