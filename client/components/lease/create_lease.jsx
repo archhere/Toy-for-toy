@@ -87,7 +87,7 @@ class CreateMyLease extends React.Component {
                 <input
                   type="date"
                   min={minDate}
-                  max={this.state.end_date}
+                  max={minDate}
                   value={this.state.start_date}
                   onChange={this.handleChange("start_date")}
                   className="start_date_input"
