@@ -37,9 +37,9 @@ class UserLease extends React.Component {
               <img className="home-category1" src={userToyHash[lease.toy_id].img_url}></img>
 
                 <div className="home-text-container2">
-                  <div className="home-category-title" className="home-category-title">{lease.start_date.slice(0, 10)}</div>
-                  <div className="home-category-title" className="home-category-title">{lease.end_date.slice(0, 10)}</div>
-                  <div className="home-category-title" className="home-category-title">{userToyHash[lease.toy_id].description}</div>
+                  <div className="home-category-title1">{lease.start_date.slice(0, 10)} To </div>
+                  <div className="home-category-title1">{lease.end_date.slice(0, 10)}</div>
+                  <div className="home-category-title1">{userToyHash[lease.toy_id].description}</div>
                 </div>
               </div>
             )}
