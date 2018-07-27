@@ -43,8 +43,14 @@ class ListingsIndex extends React.Component {
     currentListings.forEach(listing => listingIds.push(listing._id));
     let currentLeases = this.props.lease.filter(lease => (listingIds.includes(lease.toy_id) && Date.parse(lease.end_date) >= Date.parse(new Date()) ));
     let IdOfToysWithLeases = [];
-    currentLeases.forEach(lease => IdOfToysWithLeases.push(lease.toy_id));
+    let futureDateHash = {};
+    currentLeases.forEach((lease) => {
+      IdOfToysWithLeases.push(lease.toy_id);
+      futureDateHash[lease.toy_id] = lease.end_date.slice(0, 10);
+    });
     console.log(IdOfToysWithLeases);
+
+
 
     // console.log(currentLeases);
     // if (currentLeases[0]) {
@@ -67,7 +73,7 @@ class ListingsIndex extends React.Component {
 
           <div className="home-text-container2">
             <p className="home-category-title" className="home-category-title">{listing.description}</p>
-            <p className="options-near-me1">Available Later</p>
+            <p className="options-near-me1">Available on {futureDateHash[listing._id]}</p>
           </div>
               :
           <div className="home-text-container1">
