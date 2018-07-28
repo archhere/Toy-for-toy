@@ -708,7 +708,7 @@ button:focus {outline:0;}
   /* display: flex; */
   width: 720px;
   /* overflow-y: scroll; */
-  height:750px;
+  /* height:750px; */
   line-height: 1.42;
   color: #333333;
   box-sizing: border-box;
