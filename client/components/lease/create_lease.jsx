@@ -47,7 +47,7 @@ class CreateMyLease extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createLease(this.state)
-        .then(() => this.props.closeModal());
+        .then(() => this.props.closeModal()).then(this.props.history.push('/user'));
     }
 
   renderSubmitButton() {
@@ -55,7 +55,7 @@ class CreateMyLease extends React.Component {
     }
 
     handleClose(){
-      return () => this.props.closeModal();
+      return () => this.props.closeModal().then(this.props.history.push('/discover'));
     }
 
 

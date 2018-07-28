@@ -111,7 +111,7 @@ class Filter extends React.Component {
     const { filters } = this.props;
 
 
-    let unfilteredToys = this.props.toys;
+    let unfilteredToys = this.props.toys.filter(listing => (listing.ownerId !== this.props.currentUser._id));
     let toyTypes = ['Outdoor Play', 'Building blocks', 'Action figures',
     'Games and puzzles', 'Arts and crafts', 'Moving toys', 'STEM toys', 'Books'];
     let filteredToyType = [];

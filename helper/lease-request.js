@@ -27,17 +27,19 @@ module.exports = async function overlappingRequests(data,req_toy_id){
     Lease.find({toy_id: data.toy_id,rental_status:'accepted'})
     .then(lease=>{
       console.log("lease-request",lease)
+      if (data._id){
+        lease = lease.filter((el) => {
+          let strData = data._id.toString();
+          console.log(strData.constructor.name);
+          let strel = el._id.toString();
+          console.log(strel.constructor.name);
+          console.log("data",data._id)
+          console.log("el",el._id);
+          console.log(strData == strel);
+          if (strel != strData) return el
+        })
+      }
 
-      lease = lease.filter((el) => {
-        let strData = data._id.toString();
-        console.log(strData.constructor.name);
-        let strel = el._id.toString();
-        console.log(strel.constructor.name);
-        console.log("data",data._id)
-        console.log("el",el._id);
-        console.log(strData == strel);
-        if (strel != strData) return el
-      })
       console.log("lease-request",lease)
       lease.forEach((el)=>{
         if(Date.parse(el.start_date)==start_date || Date.parse(el.end_date)==start_date){

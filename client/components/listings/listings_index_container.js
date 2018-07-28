@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     // listings: Object.values(state.toys),
     // searchListings: Object.values(state.searchedListings),
+    currentUser: state.user.profile.user,
     filters: state.filters,
     listings: ownProps.props,
     lease: Object.values(state.lease),

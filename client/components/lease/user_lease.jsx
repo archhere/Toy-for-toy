@@ -69,6 +69,39 @@ class UserLease extends React.Component {
     );
   }
 
+  userAllToys(toys){
+    return(
+      <div className='outer999'>
+      <div className='welcome123'>
+        <p>You have {toys.length} toys in your inventory, to rent out.</p>
+
+      </div>
+        <div className="listing-index55">
+        <div className="category-wrapper1">
+          <div className="category-grid">
+            {toys.map(lease =>
+            <div className="category-holder1">
+              <img className="home-category1" src={lease.img_url}></img>
+
+                <div className="home-text-container2">
+                  <div className="home-category-title1">${lease.rental_rate}</div>
+                  <div className="home-category-title1">{lease.description}</div>
+
+                </div>
+
+              </div>
+
+            )}
+
+            </div>
+          </div>
+        </div>
+        </div>
+
+    );
+
+  }
+
   render(){
     let userLeaseToyIds = [];
     let userLease = this.props.lease.filter((lease) => {
@@ -91,6 +124,8 @@ class UserLease extends React.Component {
       return (lease.owner_id === this.props.currentUser._id) &&
       Date.parse(lease.end_date) >= Date.parse(new Date());
     }) ;
+
+    let userToys = this.props.toys.filter(toy => toy.ownerId === this.props.currentUser._id);
 
     let Owncount = userOwned.length;
 
@@ -129,9 +164,8 @@ class UserLease extends React.Component {
 
   </div>
       {this.userLease(userLease,count,userToyHash)}
-
+      {this.userAllToys(userToys)}
       {this.userRentdToys(userOwned,Owncount,userToyHash)}
-
 
       </div>
 

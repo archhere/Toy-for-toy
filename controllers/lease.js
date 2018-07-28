@@ -14,12 +14,12 @@ exports.addLease = function(req,res,next) {
   console.log(req.params.toyId);
 
   let currentLease = Lease.findOne({toy_id: req.params.toyId,}).then(lease => {
-    overlappingRequests(req.body, req.params.toyId).then(result => {
-    if (result) {
-      // res.json({ msg: 'overlapping dates. Sorry'});
-      res.status(422).send({ error: 'overlapping dates.Try some other dates' });
-    } else {
-
+    // overlappingRequests(req.body, req.params.toyId).then(result => {
+    // if (result) {
+    //   // res.json({ msg: 'overlapping dates. Sorry'});
+    //   res.status(422).send({ error: 'overlapping dates.Try some other dates' });
+    // } else {
+      console.log("hits else");
       let start_date =  req.body.start_date;
       let end_date = req.body.end_date;
       let rental_status = req.body.rental_status;
@@ -53,8 +53,8 @@ exports.addLease = function(req,res,next) {
       .then(doc => res.json(doc))
       .catch(err => console.log(err));
 
-    }
-  });
+    // }
+  // });
   });
 };
 

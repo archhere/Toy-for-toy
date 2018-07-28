@@ -13,7 +13,8 @@ import {receiveFilter,
 
 const mapStateToProps = (state) => ({
   filters: state.filters,
-  toys: Object.values(state.toys)
+  toys: Object.values(state.toys),
+  currentUser: state.user.profile.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({

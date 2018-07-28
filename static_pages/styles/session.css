@@ -592,7 +592,7 @@ button:focus {outline:0;}
   font-size: 18px;
   font-weight: 600;
   color:  #FFFAEA;
-  cursor: pointer;
+
 }
 
 .home-category-title1{
@@ -719,9 +719,9 @@ button:focus {outline:0;}
   color: #333333;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 150px 150px 150px 150px;
+  /* grid-template-columns: 150px 150px 150px 150px;
   grid-template-rows: 250px 250px;
-  grid-gap: 7rem;
+  grid-gap: 7rem; */
 
 }
 
