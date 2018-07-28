@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 
 
   render() {
-    console.log("props",this.props);
+    
     let value1;
     let value2;
     let action1;

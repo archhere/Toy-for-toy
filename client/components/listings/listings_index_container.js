@@ -8,8 +8,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { requestAllToysLease } from '../../actions/lease_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.filters);
-  console.log(state.lease);
+  
   return {
     // listings: Object.values(state.toys),
     // searchListings: Object.values(state.searchedListings),

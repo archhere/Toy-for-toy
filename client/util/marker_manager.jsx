@@ -1,27 +1,3 @@
-// class MarkerManager {
-//   constructor(map) {
-//     this.map = map;
-//     this.markers = {};
-//   }
-//
-//   createMarkerFromListing(listing) {
-//     const marker = new window.google.maps.Marker({
-//       position: {lat: listing.latitude, lng: listing.longitude},
-//       map: this.map,
-//       listingId: listing._id
-//     });
-//     console.log("marker",marker);
-//
-//     this.markers[marker.listingId] = marker;
-//   }
-//
-//   updateMarkers(listings) {
-//     listings.filter( listing => !this.markers[listing.id])
-//       .forEach(newListing => this.createMarkerFromListing(newListing));
-//   }
-// }
-//
-// export default MarkerManager;
 
 export default class MarkerManager {
   constructor(map, toys) {
@@ -54,11 +30,8 @@ export default class MarkerManager {
   }
 
   createMarker(toy,image) {
-    console.log("markermanagertoy",toy);
-    console.log(image);
-    // let contentString = '<div >' +
-    //   `${toy.description}` + ' available at ' + `${toy.line1}`;
-    //   '</div >';
+
+
 
       let contentString = '<div className="mapouterborder">' + '<div>' +
         `<img className="mapimage" src=${image}>` + '</img>' +
@@ -67,13 +40,13 @@ export default class MarkerManager {
         '<div id="rentaldescp">' + '$'+`${toy.rental_rate}`+' per day' + '</div >' +
         '</div >' + '</div>' + '</div >';
 
-      // let contentString = "<div><img src='image'></img></div>";
+
 
     let infoWindow = new window.google.maps.InfoWindow({
       content: contentString
     });
     const position = new window.google.maps.LatLng(toy.latitude, toy.longitude);
-    console.log(position);
+
     const marker = new window.google.maps.Marker({
       position,
       map: this.map,
@@ -109,36 +82,7 @@ export default class MarkerManager {
     });
   }
 
-  // addMarkerWithTimeout(position, timeout, toy) {
-  //   window.setTimeout( () => {
-  //
-  //     let contentString = '<div >' +
-  //       `${toy.name}` +
-  //       '</div >';
-  //
-  //     let infoWindow = new window.google.maps.InfoWindow({
-  //       content: contentString
-  //     });
-  //
-  //     this.infoWindows.push(infoWindow);
-  //
-  //     let marker = new window.google.maps.Marker({
-  //       position: position,
-  //       map: this.map,
-  //       toyId: toy.id,
-  //       icon: 'https://res.cloudinary.com/mwojick/image/upload/v1528938958/marker-32.ico',
-  //       animation: window.google.maps.Animation.DROP
-  //     });
-  //
-  //     marker.addListener('click', () => {
-  //       infoWindow.open(this.map, marker);
-  //     });
-  //
-  //     this.markers[toy.id] = marker;
-  //
-  //
-  //   }, timeout);
-  // }
+  
 
   clearMarkers() {
     let keys = Object.keys(this.markers);

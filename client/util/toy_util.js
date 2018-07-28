@@ -36,7 +36,7 @@ export const fetchOneToy = (id) => {
 
 export function errorHandler(dispatch, error, type) {
   let errorMessage = '';
-  console.log("hits errorHandler");
+  
   if (error.responseText) {
     errorMessage = error.responseText;
   } else if (error.statusText) {

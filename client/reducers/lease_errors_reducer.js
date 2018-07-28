@@ -6,7 +6,7 @@ import { RECEIVE_LEASE_ERRORS } from '../actions/lease_actions';
     Object.freeze(state);
     switch (action.type) {
       case RECEIVE_LEASE_ERRORS:
-      console.log(action);
+      
         return action.payload.error;
       default:
         return state;

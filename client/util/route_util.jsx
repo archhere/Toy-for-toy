@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
-  console.log("state",state);
+  
   return(
     { loggedIn: state.auth.authenticated }
   );

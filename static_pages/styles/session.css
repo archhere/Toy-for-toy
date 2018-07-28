@@ -602,6 +602,13 @@ button:focus {outline:0;}
   cursor: pointer;
 }
 
+
+.home-category-title4{
+  font-size: 18px;
+  font-weight: 600;
+  color:  #FFFAEA;
+}
+
 .home-category-title:hover {
   text-decoration: underline;
 }
@@ -682,6 +689,11 @@ button:focus {outline:0;}
   height: 243px;
   width: 243px;
 
+}
+
+.home-category134{
+  height: 243px;
+  width: 243px;
 }
 
 .category-holder1 {

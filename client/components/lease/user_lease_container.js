@@ -8,8 +8,7 @@ import cookie from 'react-cookies';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.filters);
-  console.log(state.lease);
+  
   let token = cookie.load('token');
   let currentUser;
   if (token) {

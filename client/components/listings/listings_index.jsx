@@ -14,7 +14,7 @@ class ListingsIndex extends React.Component {
     if(!this.props.lease.length){
       this.props.requestAllToysLease();
     }
-    console.log(nextProps);
+
   }
 
   applyFilters(listings) {
@@ -48,18 +48,11 @@ class ListingsIndex extends React.Component {
       IdOfToysWithLeases.push(lease.toy_id);
       futureDateHash[lease.toy_id] = lease.end_date.slice(0, 10);
     });
-    console.log(IdOfToysWithLeases);
 
 
 
-    // console.log(currentLeases);
-    // if (currentLeases[0]) {
-    //   console.log(Date.parse(currentLeases[0].start_date));
-    //   console.log(Date.parse(new Date()));
-    //   console.log(Date.parse(new Date()) - Date.parse(currentLeases[0].start_date));
-    //   // 100000000
-    // }
 
+    
 
 
 

@@ -8,7 +8,7 @@ export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case AUTH_USER:
     let newState = Object.assign({},state,{authenticated: true});
-    console.log(newState);
+    
       return newState;
     case UNAUTH_USER:
       return merge({}, state,{authenticated: false, error: action.payload});

@@ -24,21 +24,7 @@ class CreateMyLease extends React.Component {
     this.props.requestAllLease(this.props.currentToy._id);
   }
 
-  // renderErrors() {
-  //   let slice;
-  //   console.log("errors",this.props.errors);
-  //   if (this.props.formType === "Signup") {
-  //     if (this.props.errors) {
-  //       slice = this.props.errors.slice(10, this.props.errors.length - 2);
-  //     }
-  //   } else {
-  //     slice = this.props.errors;
-  //   }
-  //   return(
-  //     <div className="errors">{slice}</div>
-  //   );
-  // }
-
+  
 
   handleChange(field) {
     return (e) => this.setState({ [field]: e.target.value });

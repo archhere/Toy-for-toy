@@ -19,12 +19,12 @@ class UserLease extends React.Component {
                 <div className="category-grid">
                   {userLease.map(lease =>
                   <div className="category-holder1">
-                    <img className="home-category1" src={userToyHash[lease.toy_id].img_url}></img>
+                    <img className="home-category134" src={userToyHash[lease.toy_id].img_url}></img>
 
                       <div className="home-text-container2">
-                        <div className="home-category-title1">${userToyHash[lease.toy_id].rental_rate}</div>
-                        <div className="home-category-title1">Until {lease.end_date.slice(0, 10)}</div>
-                        <div className="home-category-title1">{userToyHash[lease.toy_id].description}</div>
+                        <div className="home-category-title4">${userToyHash[lease.toy_id].rental_rate}</div>
+                        <div className="home-category-title4">Until {lease.end_date.slice(0, 10)}</div>
+                        <div className="home-category-title4">{userToyHash[lease.toy_id].description}</div>
                       </div>
                     </div>
                   )}
@@ -48,12 +48,12 @@ class UserLease extends React.Component {
           <div className="category-grid">
             {userOwned.map(lease =>
             <div className="category-holder1">
-              <img className="home-category1" src={userToyHash[lease.toy_id].img_url}></img>
+              <img className="home-category134" src={userToyHash[lease.toy_id].img_url}></img>
 
                 <div className="home-text-container2">
-                  <div className="home-category-title1">${userToyHash[lease.toy_id].rental_rate}</div>
-                  <div className="home-category-title1">Until {lease.end_date.slice(0, 10)}</div>
-                  <div className="home-category-title1">{userToyHash[lease.toy_id].description}</div>
+                  <div className="home-category-title4">${userToyHash[lease.toy_id].rental_rate}</div>
+                  <div className="home-category-title4">Until {lease.end_date.slice(0, 10)}</div>
+                  <div className="home-category-title4">{userToyHash[lease.toy_id].description}</div>
 
                 </div>
 
@@ -81,11 +81,11 @@ class UserLease extends React.Component {
           <div className="category-grid">
             {toys.map(lease =>
             <div className="category-holder1">
-              <img className="home-category1" src={lease.img_url}></img>
+              <img className="home-category134" src={lease.img_url}></img>
 
                 <div className="home-text-container2">
-                  <div className="home-category-title1">${lease.rental_rate}</div>
-                  <div className="home-category-title1">{lease.description}</div>
+                  <div className="home-category-title4">${lease.rental_rate}</div>
+                  <div className="home-category-title4">{lease.description}</div>
 
                 </div>
 
@@ -110,14 +110,14 @@ class UserLease extends React.Component {
       Date.parse(lease.end_date) >= Date.parse(new Date());
     }) ;
 
-    console.log(userLease);
+
     let count = userLease.length;
     let userToyHash = {};
     this.props.toys.forEach((toy) => {
       if (userLeaseToyIds.includes(toy._id)) userToyHash[toy._id] = toy;
     });
 
-    console.log(userToyHash);
+
 
 
     let userOwned = this.props.lease.filter((lease) => {

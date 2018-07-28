@@ -22,14 +22,7 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  // console.log("appstate", state);
-  // console.log(state.auth.authenticated);
-  // let value;
-  // if (state.auth.authenticated){
-  //   value = <AuthRoute exact path="/login" component={LoginFormContainer} />;
-  // } else{
-  //   value = "";
-  // }
+  
 
   return (
     <div>

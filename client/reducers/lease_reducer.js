@@ -10,7 +10,7 @@ const leaseReducer = (state = {}, action) => {
       newState[lease._id] = lease;
       return newState;
     case RECEIVE_ALL_LEASE:
-    console.log(action);
+    
       let newlease = JSON.parse(action.payload);
       let hash_lease = {};
       newlease.forEach((value) => {
@@ -18,7 +18,7 @@ const leaseReducer = (state = {}, action) => {
       });
       return hash_lease;
     case RECEIVE_ALL_TOYS_LEASE:
-    console.log(action);
+
       let allLease = JSON.parse(action.payload);
       let hashLease = {};
       allLease.forEach((value) => {

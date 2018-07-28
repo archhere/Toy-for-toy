@@ -25,24 +25,24 @@ class ListingsMap extends React.Component {
 
     const map = this.refs.map;
     this.map = new window.google.maps.Map(map, mapOptions);
-    console.log(this.props.toys);
+
     this.MarkerManager = new MarkerManager(this.map,this.props.toys);
     // this.MarkerManager.drop();
     this.MarkerManager.updateMarkers(this.props.toys);
-    // console.log(this.MarkerManager);
+
 
 
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("called");
+
     if(this.props.toys !== nextProps.toys){
       this.MarkerManager.updateMarkers(this.props.toys);
     }
   }
 
   componentDidUpdate() {
-    console.log("called");
+    
     this.MarkerManager.updateMarkers(this.props.toys);
   }
 

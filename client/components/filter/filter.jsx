@@ -57,16 +57,11 @@ class Filter extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("thistoys",this.props.toys);
-    console.log("nextprops",nextProps.toys);
+
     if (this.props.toys.length !== nextProps.toys.length) this.props.fetchToys();
   }
 
-  // componentDidUpdate(){
-  //   console.log("called");
-  //   this.props.fetchToys();
-  // }
-
+  
 
 
   toggleBoolean(field) {
