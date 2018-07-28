@@ -106,10 +106,10 @@ class CreateToy extends React.Component {
                 <select className="selec12345" defaultValue={this.state.toyType}
                   onChange={this.update("toyType")}>
                   <option value="Outdoor Play">Outdoor Play</option>
-                  <option value="Building Blocks">Building Blocks</option>
-                  <option value="Action Figures">Action Figures</option>
-                  <option value="Games and Puzzles">Games and Puzzles</option>
-                  <option value="Arts and Crafts">Arts and Crafts</option>
+                  <option value="Building blocks">Building blocks</option>
+                  <option value="Action figures">Action figures</option>
+                  <option value="Games and puzzles">Games and puzzles</option>
+                  <option value="Arts and crafts">Arts and crafts</option>
                   <option value="Moving toys">Moving toys</option>
                   <option value="STEM toys">STEM toys</option>
                   <option value="Books">Books</option>
