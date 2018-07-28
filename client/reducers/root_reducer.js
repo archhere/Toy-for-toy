@@ -6,6 +6,7 @@ import toyReducer from './toy_reducer';
 import filterReducer from './filters_reducer';
 import leaseReducer from './lease_reducer';
 import leaseErrorsReducer from './lease_errors_reducer';
+import toyErrorsReducer from './toy_errors_reducer';
 
 const rootReducer = combineReducers({
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   filters: filterReducer,
   lease: leaseReducer,
   // leaseErrors: leaseErrorsReducer,
+  toyErrors: toyErrorsReducer,
 });
 
 export default rootReducer;

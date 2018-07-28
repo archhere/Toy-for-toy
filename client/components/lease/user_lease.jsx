@@ -52,7 +52,7 @@ class UserLease extends React.Component {
 
                 <div className="home-text-container2">
                   <div className="home-category-title1">${userToyHash[lease.toy_id].rental_rate}</div>
-                  <div className="home-category-title1">Until{lease.end_date.slice(0, 10)}</div>
+                  <div className="home-category-title1">Until {lease.end_date.slice(0, 10)}</div>
                   <div className="home-category-title1">{userToyHash[lease.toy_id].description}</div>
 
                 </div>

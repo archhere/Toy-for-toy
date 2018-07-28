@@ -31,6 +31,9 @@ class CreateToy extends React.Component {
     .field('upload_preset', UPLOAD_PRESET)
     .field('file', image);
     upload.end((err, response) => {
+      if (err) {
+        alert("Image upload failed. Please try agian.");
+      }
       if (response.body.secure_url !== '') {
         this.setState({
           img_url: response.body.secure_url
@@ -80,33 +83,27 @@ class CreateToy extends React.Component {
 
 
     return (
-        <div>
-          <form id="CreatePegForm" onSubmit={this.handleSubmit} className="create-peg-form">
-            <div className="create-peg-header-outer"><h3 className="create-peg-header">Rent your Toy</h3></div><br/>
-          
-            <label className="website"><span>Address</span> <br />
-            <input type="text" required value={this.state.line1} placeholder="Enter your address" onChange={this.update('line1')}/>
+        <div className="toycreateform123">
+
+          <form id="CreatePegForm" onSubmit={this.handleSubmit} className="create-toy-form">
+            <div>
+            <div className="create-peg-header-outer"><h3 className="create-toy-header">Rent your Toy</h3></div><br/>
+
+            <label className="titleform"><span>Address</span> <br />
+            <input className="input12345" type="text" required value={this.state.line1} placeholder="Enter your street address and number" onChange={this.update('line1')}/>
           </label>
           <br/> <br/>
-            <label className="titleform"><span>City</span> <br />
-              <input type="text" required value={this.state.city} placeholder="City" onChange={this.update('city')}/>
-            </label>
-            <br/> <br/>
-            <label className="titleform"><span>State</span> <br />
-              <input type="text" required value={this.state.state} placeholder="State" onChange={this.update('state')}/>
-            </label>
-            <br/> <br/>
             <label className="titleform"><span>Zipcode</span> <br />
-              <input type="text" required value={this.state.zipcode} placeholder="Zipcode" onChange={this.update('zipcode')}/>
+              <input className="input12345" type="text" required value={this.state.zipcode} pattern="[0-9]{5}" title="Five digit zip code" placeholder="Zipcode" onChange={this.update('zipcode')}/>
             </label>
             <br/> <br/>
-            <label className="titleform"><span>Description</span> <br />
-              <input type="text" required value={this.state.description} placeholder="Toy name" onChange={this.update('description')}/>
+            <label className="titleform"><span>Toy Name</span> <br />
+              <input className="input12345" type="text" required value={this.state.description} placeholder="Toy name" onChange={this.update('description')}/>
             </label>
             <br/> <br/>
-            <div className="search-check-in">
-              <h5>Toy type</h5>
-                <select defaultValue={this.state.toyType}
+            <div className="titleform">
+              <span>Toy Type</span> <br />
+                <select className="selec12345" defaultValue={this.state.toyType}
                   onChange={this.update("toyType")}>
                   <option value="Outdoor Play">Outdoor Play</option>
                   <option value="Building Blocks">Building Blocks</option>
@@ -118,12 +115,13 @@ class CreateToy extends React.Component {
                   <option value="Books">Books</option>
                 </select>
             </div>
-            <br/> <br/>
-              <label className="titleform"><span>Rental rate per day</span> <br />
-                <input type="text" required value={this.state.rental_rate} placeholder="Daily rental rate" onChange={this.update('rental_rate')}/>
+            <br/>
+              <label className="titleform"
+                step="any"><span>Rental rate per day</span> <br/>
+                <input type="number" min="1" step="any" className="input12345" required value={this.state.rental_rate} placeholder="Daily rental rate" onChange={this.update('rental_rate')}/>
               </label>
-              <br/>
-
+              <br/> <br/>
+            </div>
 
             <Dropzone
               multiple={false}
@@ -132,7 +130,7 @@ class CreateToy extends React.Component {
               {this.picturethumbnail()}
 
             </Dropzone>
-
+            <br/> <br/>
             <div className="submitouterdiv">
             <input className={someclass} type="submit" value='Done' /></div>
 

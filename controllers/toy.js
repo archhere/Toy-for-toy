@@ -35,22 +35,30 @@ exports.addToy = function(req,res,next) {
         // const geometry= {
         //   coordinates: [req.body.longitude, req.body.latitude]
         // };
+
+        console.log(req.body);
         const line1 = req.body.line1;
         const line2 = req.body.line2;
-        const city= req.body.city;
-        const state= req.body.state;
+
         const zipcode= req.body.zipcode;
         const description=req.body.description;
-        const ageGroup = req.body.ageGroup;
+        // const ageGroup = req.body.ageGroup;
         const toyType= req.body.toyType;
         let zip = cities.zip_lookup(req.body.zipcode.toString());
-        const latitude = req.body.latitude || parseFloat(zip.latitude);
-        const longitude = req.body.longitude || parseFloat(zip.longitude);
+        console.log(zip);
+        const latitude = parseFloat(zip.latitude);
+        const longitude = parseFloat(zip.longitude);
+        const city = zip.city;
+        const state = zip.state;
+
         const rental_rate= req.body.rental_rate;
         const rental_type= req.body.rental_type;
         let img_url= req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1531881005/download_2.jpg";
         const ownerId = req.body.ownerId || jwtDecode(JSON.stringify(token))._id;
-
+        console.log(city);
+        console.log(state);
+        console.log(latitude);
+        console.log(longitude);
 
 // --------------------------------------------------------------------
   // VALIDATIONS
@@ -64,9 +72,9 @@ exports.addToy = function(req,res,next) {
     return res.status(422).send({ error: 'You must enter an address.'});
   }
 
-  if (!line2) {
-    return res.status(422).send({ error: 'You must enter an address.' });
-  }
+  // if (!line2) {
+  //   return res.status(422).send({ error: 'You must enter an address.' });
+  // }
 
   if (!city) {
     return res.status(422).send({ error: 'You must enter city name.' });
@@ -84,9 +92,9 @@ exports.addToy = function(req,res,next) {
     return res.status(422).send({ error: 'You must enter a description.' });
   }
 
-  if (!ageGroup) {
-    return res.status(422).send({ error: 'You must enter appropriate age group.' });
-  }
+  // if (!ageGroup) {
+  //   return res.status(422).send({ error: 'You must enter appropriate age group.' });
+  // }
 
   if (!toyType) {
     return res.status(422).send({ error: 'You must enter toy type.' });
@@ -114,7 +122,6 @@ exports.addToy = function(req,res,next) {
     latitude: latitude,
     longitude: longitude,
     description: description,
-    ageGroup: ageGroup,
     toyType: toyType,
     rental_rate: rental_rate,
     rental_type: rental_type,

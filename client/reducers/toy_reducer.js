@@ -6,6 +6,7 @@ const toyReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ONE_TOY:
       let newState = merge({}, state);
+      console.log(action);
       let toy = JSON.parse(action.payload);
       newState[toy._id] = toy;
       return newState;
