@@ -24,7 +24,7 @@ class CreateMyLease extends React.Component {
     this.props.requestAllLease(this.props.currentToy._id);
   }
 
-  
+
 
   handleChange(field) {
     return (e) => this.setState({ [field]: e.target.value });
@@ -85,7 +85,7 @@ class CreateMyLease extends React.Component {
                 <h5>Reserve to</h5>
                 <input
                   type="date"
-                  min={this.state.start_date}
+                  min={this.props.endDateStart}
                   max={maxDate}
                   value={this.state.end_date}
                   onChange={this.handleChange("end_date")}

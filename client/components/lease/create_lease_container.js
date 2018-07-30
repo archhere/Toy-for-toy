@@ -14,17 +14,20 @@ const mapStateToProps = (state,ownProps) => {
     return new Date(theDate.getTime() + days*24*60*60*1000);
   }
 
+  let endDateStart = addDays(currentDate,1).toJSON().slice(0, 10);
+
   let max = addDays(currentDate,14);
   let maxDate = max.toJSON().slice(0, 10);
 
   const errors = state.leaseErrors;
-  
+
   return {
     currentToy: ownProps.toy,
     currentUser: state.user.profile.user,
     minDate,
     maxDate,
     lease: Object.values(state.lease),
+    endDateStart,
     // errors,
   };
 };
