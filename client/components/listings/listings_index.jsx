@@ -6,12 +6,12 @@ class ListingsIndex extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    // this.props.requestAllToysLease();
+    this.props.requestAllToysLease();
   }
 
 
   componentWillReceiveProps(nextProps){
-    if(!this.props.lease.length){
+    if(this.props.lease.length !== nextProps.lease.length){
       this.props.requestAllToysLease();
     }
 
@@ -39,20 +39,21 @@ class ListingsIndex extends React.Component {
   renderListingItem() {
 
     let currentListings = this.props.listings;
+    let leases = this.props.lease;
     let listingIds = [];
     currentListings.forEach(listing => listingIds.push(listing._id));
-    let currentLeases = this.props.lease.filter(lease => (listingIds.includes(lease.toy_id) && Date.parse(lease.end_date) >= Date.parse(new Date()) ));
+    let currentLeases = leases.filter(lease => (listingIds.includes(lease.toy_id) && Date.parse(lease.end_date) >= Date.parse(new Date()) ));
     let IdOfToysWithLeases = [];
     let futureDateHash = {};
     currentLeases.forEach((lease) => {
       IdOfToysWithLeases.push(lease.toy_id);
       futureDateHash[lease.toy_id] = lease.end_date.slice(0, 10);
     });
-
-
-
-
     
+
+
+
+
 
 
 

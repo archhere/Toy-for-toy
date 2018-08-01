@@ -34,7 +34,7 @@ body {
   justify-content: center;
   align-items: center;
   background: url(""),
-  url("https://images.unsplash.com/photo-1473662711507-13345f9d447c?ixlib=rb-0.3.5&s=ffbed88768d03fcc60e099e1a8179894&auto=format&fit=crop&w=1650&q=80");
+  url(" https://res.cloudinary.com/archhere/image/upload/v1533135610/toy-for-toy/photo-1473662711507-13345f9d447c.jpg");
   background-repeat: no-repeat, repeat-x;
   background-position:center;
   /* background-color: #FFD944; */
@@ -858,12 +858,19 @@ li{
   border-radius: 8px;
   opacity: 0.5;
   background: lightgray;
+
 }
 
 #descprent{
   display: flex;
   justify-content: space-between;
 
+}
+
+.gm-style img{
+
+  height: 200px;
+  margin-bottom: 10px;
 }
 
 /* img {
@@ -876,6 +883,7 @@ li{
   color:  #FFFAEA;
   font-size: 18px;
   padding: 5px;
+  margin-right: 10px;
 }
 
 #rentaldescp{

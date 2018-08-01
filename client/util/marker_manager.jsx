@@ -43,7 +43,7 @@ export default class MarkerManager {
 
 
     let infoWindow = new window.google.maps.InfoWindow({
-      content: contentString
+      content: contentString,
     });
     const position = new window.google.maps.LatLng(toy.latitude, toy.longitude);
 
@@ -82,7 +82,7 @@ export default class MarkerManager {
     });
   }
 
-  
+
 
   clearMarkers() {
     let keys = Object.keys(this.markers);

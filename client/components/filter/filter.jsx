@@ -61,7 +61,7 @@ class Filter extends React.Component {
     if (this.props.toys.length !== nextProps.toys.length) this.props.fetchToys();
   }
 
-  
+
 
 
   toggleBoolean(field) {
